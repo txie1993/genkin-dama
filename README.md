@@ -1,6 +1,6 @@
 # GenkinDama, a Kickstarter clone
 
-[Heroku link][heroku] 
+[Heroku link][heroku]
 
 [Trello link][trello]
 
@@ -8,7 +8,7 @@
 [trello]: https://trello.com/b/kwnahtrO/kickstarterclone
 
 ## Minimum Viable Product
-
+dsfasfd
 GenkinDama is a web application based on Kickstarter built on Rails/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
 following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
