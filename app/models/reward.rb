@@ -16,7 +16,7 @@ class Reward < ActiveRecord::Base
   foreign_key: :backing_id,
   class_name: :Backing
 
-  belongs_to :backer,
+  has_one :backer,
   through: :backing,
   source: :backer
 end
