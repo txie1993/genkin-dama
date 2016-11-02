@@ -51,11 +51,11 @@ sufficient CSS styling:
 
 **Objective:** Projects can be created, destroyed, edited through the API. Projects will have reward levels and be able to total their earnings.
 
-### Phase 3: Backing (2 day)
+### Phase 3: Backing (2 days)
 
 **Objective:** Users will be able to back projects through the API, or remove their backings.
 
-### Phase 4: Tags (1 days)
+### Phase 4: Tags (1 day)
 
 **Objective:** Projects can be tagged with multiple tags, and tags are searchable.
 

@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
 			password: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.guestLogin = this.guestLogin.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -33,6 +34,12 @@ class SessionForm extends React.Component {
 		this.props.processForm({user});
 	}
 
+	guestLogin(e) {
+		e.preventDefault();
+		const user = {username:"PPMD", password:"Kreygasm"};
+		this.props.login({user});
+	}
+
 	navLink() {
 		if (this.props.formType === "login") {
 			return <Link to="/signup">sign up instead</Link>;
@@ -55,7 +62,7 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
+			<div className="login-form-container fade-in">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 					Welcome to Genkin-Dama!
 					<br/>
@@ -80,6 +87,7 @@ class SessionForm extends React.Component {
 						<input type="submit" value="Submit" />
 					</div>
 				</form>
+				<button className="guest-login" onClick={this.guestLogin}>No Account? Sign In As Guest</button>
 			</div>
 		);
 	}
