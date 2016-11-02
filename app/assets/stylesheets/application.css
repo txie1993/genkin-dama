@@ -21,6 +21,35 @@
  .content {
    height: 100%;
  }
+header{
+  display: flex;
+  width: 100%;
+}
+
+.header-link{
+  flex:1;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+ nav {
+   justify-content: flex-end;
+   padding: 20px;
+ }
+
+ .header-group {
+   display: flex;
+ }
+
+ .header-name{
+   justify-content: flex-start;
+   font-weight: bold;
+ }
+
+ .header-button{
+   height: 20px;
+   margin: 20px;
+   justify-content: flex-end;
+ }
 
  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
@@ -42,7 +71,6 @@
  .login-form-box {
    border: 4px grey;
    background: white;
-   /*outline: 1px solid black;*/
    padding: 20px;
    border-radius: 20px;
    height: 100%;
@@ -68,7 +96,6 @@
  }
 
  .login-input {
-   margin-left: 20px;
    width: inherit;
    box-sizing: border-box;
    padding: 10px;

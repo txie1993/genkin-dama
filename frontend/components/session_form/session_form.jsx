@@ -84,9 +84,13 @@ class SessionForm extends React.Component {
 								onChange={this.update("password")}
 								className="login-input" />
 						<br/>
-						<input className="login-submit" type="submit" value="Submit" />
+						<input className="login-submit"
+							type="submit" value="Submit" />
 						<br/>
-						<button className="guest-login" onClick={this.guestLogin}>No Account? Sign In As Guest</button>
+						<button
+							className="guest-login"
+							onClick={this.guestLogin}>
+							No Account? Sign In As Guest</button>
 					</div>
 				</form>
 			</div>
