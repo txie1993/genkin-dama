@@ -50,7 +50,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
 		return(
-			<ul>
+			<ul className="session-errors">
 				{this.props.errors.map((error, i) => (
 					<li key={`error-${i}`}>
 						{error}
@@ -71,23 +71,24 @@ class SessionForm extends React.Component {
 					<div className="login-form">
 						<br/>
 						<label> Username:
+						</label>
 							<input type="text"
 								value={this.state.username}
 								onChange={this.update("username")}
 								className="login-input" />
-						</label>
 						<br/>
 						<label> Password:
+						</label>
 							<input type="password"
 								value={this.state.password}
 								onChange={this.update("password")}
 								className="login-input" />
-						</label>
 						<br/>
-						<input type="submit" value="Submit" />
+						<input className="login-submit" type="submit" value="Submit" />
+						<br/>
+						<button className="guest-login" onClick={this.guestLogin}>No Account? Sign In As Guest</button>
 					</div>
 				</form>
-				<button className="guest-login" onClick={this.guestLogin}>No Account? Sign In As Guest</button>
 			</div>
 		);
 	}

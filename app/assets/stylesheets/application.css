@@ -13,73 +13,127 @@
  *= require_tree .
  *= require_self
  */
-
-  body {
-    font-family: 'Slabo 27px', sans-serif;
-  }
+ body {
+   font-family: 'Slabo 27px', sans-serif;
+ }
 
  .content {
    height: 100%;
  }
 
+ @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+ .fade-in {
+   opacity:0;  /* make things invisible upon start */
+   -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+   -moz-animation:fadeIn ease-in 1;
+   animation:fadeIn ease-in 1;
+
+   -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+   -moz-animation-fill-mode:forwards;
+   animation-fill-mode:forwards;
+
+   -webkit-animation-duration:0.5s;
+   -moz-animation-duration:0.5s;
+   animation-duration:0.5s;
+ }
+
+ .login-form-box {
+   border: 4px grey;
+   background: #ffe;
+   /*outline: 1px solid black;*/
+   padding: 20px;
+   border-radius: 20px;
+ }
+
+
  .login-form-container {
    display: flex;
    justify-content: center;
    margin-top: 100px;
+   font-size: 1.5em;
  }
 
  .login-form {
    display: flex;
    justify-content: center;
    flex-direction: column;
+   font-size: 1em;
  }
 
  .login-input {
    margin-left: 20px;
+   width: inherit;
+   box-sizing: border-box;
    padding: 10px;
-   align-content: center;
-   border-radius: 4px;
+   font-size: 14px;
+   line-height: 17px;
+   border-radius: 6px;
+   background: white;
+   border: 1px solid #dad7d4;
+   color: #020621;
  }
 
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-.fade-in {
-	opacity:0;  /* make things invisible upon start */
-	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-	-moz-animation:fadeIn ease-in 1;
-	animation:fadeIn ease-in 1;
-
-	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-	-moz-animation-fill-mode:forwards;
-	animation-fill-mode:forwards;
-
-	-webkit-animation-duration:0.5s;
-	-moz-animation-duration:0.5s;
-	animation-duration:0.5s;
-}
-
- .login-form-box {
-   border: 4px grey inset;
-   background: #ffe;
-   /*outline: 1px solid black;*/
-   padding: 20px;
-   border-radius: 20px 0px 0px 20px;
- }
-
- .guest-login {
+ .login-submit {
+   background-color: #05AF3C;
+   width: inherit;
+   color: #FFFFFF;
    font-weight: bold;
-   background-color: #ccc;
-   width: 100px;
-   border-radius: 0px 20px 20px 0px;
+   cursor: pointer;
+   font-size: 1.4rem;
+   line-height: 1;
+   padding: 10px 20px;
+   text-align: center;
+   border-radius: 6px;
+   border-style: none;
+   -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+ }
+ .login-submit:hover {
+   background-color: black;
+ }
+ .login-submit:active {
+   background-color: pink;
  }
 
+
  .guest-login {
-     -webkit-transition-duration: 0.4s; /* Safari */
-     transition-duration: 0.4s;
+   background-color: blue;
+   color: #FFFFFF;
+   font-weight: bold;
+   width: inherit;
+   cursor: pointer;
+   font-size: 1.4rem;
+   line-height: 1;
+   padding: 10px 20px;
+   text-align: center;
+   border-radius: 6px;
+   border-style: none;
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
  }
 
  .guest-login:hover {
      background-color: white;
      color: red;
      font-weight: bolder;
+ }
+ .session-errors {
+   padding: 0px;
+
+ }
+ .session-errors > li {
+   background-color: red;
+   color: #FFFFFF;
+   font-weight: bold;
+   width: 300px;
+   font-size: 1.4rem;
+   line-height: 1;
+   padding: 10px;
+   margin-left: 20px;
+   border-style: none;
+   list-style: none;
+   justify-content: center;
+   text-align: center;
+
  }
