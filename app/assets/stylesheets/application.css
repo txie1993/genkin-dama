@@ -40,18 +40,23 @@
 
  .login-form-box {
    border: 4px grey;
-   background: #ffe;
+   background: white;
    /*outline: 1px solid black;*/
    padding: 20px;
    border-radius: 20px;
+   height: 100%;
+   margin-top: 50px;
+   margin-bottom: 50px;
  }
 
 
  .login-form-container {
    display: flex;
    justify-content: center;
-   margin-top: 100px;
    font-size: 1.5em;
+   background: #eee;
+   opacity: 0.1;
+   height: 100%
  }
 
  .login-form {
