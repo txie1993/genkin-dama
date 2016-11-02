@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101211125) do
+ActiveRecord::Schema.define(version: 20161102000822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20161101211125) do
     t.integer  "backing_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "amount",      null: false
   end
 
   add_index "rewards", ["backing_id"], name: "index_rewards_on_backing_id", using: :btree

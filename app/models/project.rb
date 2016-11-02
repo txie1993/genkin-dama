@@ -13,6 +13,7 @@
 #
 
 class Project < ActiveRecord::Base
+  validates :title, :image_url, :description, :funding_goal, :creator_id, presence: true
 
   has_many :backings,
   primary_key: :id,
@@ -27,4 +28,13 @@ class Project < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :creator_id,
   class_name: :User
+
+  has_many :taggings,
+  primary_key: :id,
+  foreign_key: :project_id,
+  class_name: :Tagging
+
+  has_many :tags,
+  through: :taggings,
+  source: :tag
 end

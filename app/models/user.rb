@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   foreign_key: :backer_id,
   class_name: :Backing
 
+  has_many :rewards,
+  through: :backings,
+  source: :rewards
+
   has_many :projects,
   primary_key: :id,
   foreign_key: :creator_id,

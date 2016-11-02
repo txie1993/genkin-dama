@@ -10,4 +10,8 @@
 #
 
 class Tagging < ActiveRecord::Base
+  validates :project_id, :tag_id, presence: true
+
+  belongs_to :tag
+  belongs_to :project
 end

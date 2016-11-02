@@ -11,12 +11,14 @@
 #
 
 class Reward < ActiveRecord::Base
+  validates :name, :description, :backing_id, :amount, presence: true
+
   belongs_to :backing,
   primary_key: :id,
   foreign_key: :backing_id,
   class_name: :Backing
 
-  has_one :backer,
+  has_many :backers,
   through: :backing,
   source: :backer
 end
