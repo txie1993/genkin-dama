@@ -11,17 +11,36 @@ class Api::ProjectsController < ApplicationController
 
   def destroy
    @project = @project.find(params[:id])
-   @project.destroy
+   if @project.destroy
+     render :show
+   else
+     render json: @project.errors.full_messages, status: 422
+   end
   end
 
   def create
-    @project = Project.create!(project_params)
-    render :show
+    @project = Project.new(project_params)
+
+    if @project.save
+      render :show
+    else
+      render json: @project.errors.full_messages, status: 422
+    end
   end
+
+  def update
+  @project = Project.find(params[:id])
+
+  if @project.update(project_params)
+    render :show
+  else
+    render json: @project.errors.full_messages, status: 422
+  end
+end
 
   private
 
-  def bench_params
+  def project_params
     params.require(:project).permit(
     :title,
     :image_url,
