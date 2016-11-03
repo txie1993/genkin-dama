@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   has_many :backings,
   primary_key: :id,
   foreign_key: :backer_id,
-  class_name: :Backing
+  class_name: :Backing,
+  dependent: :destroy
 
   has_many :rewards,
   through: :backings,
@@ -24,7 +25,8 @@ class User < ActiveRecord::Base
   has_many :projects,
   primary_key: :id,
   foreign_key: :creator_id,
-  class_name: :Project
+  class_name: :Project,
+  dependent: :destroy
 
 
   attr_reader :password

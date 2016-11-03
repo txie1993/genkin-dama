@@ -18,7 +18,7 @@
    margin:0px;
  }
 
- input.text, input.input-text, input.password, input[type="text"], textarea, textarea.input-textarea, iframe.editor, select {
+ input.text, input.input-text, input.password, input[type="text"], textarea, textarea.input-textarea, iframe.editor, select, input[type="date"] {
     border-radius: 6px;
     background: white;
     border: 1px solid #dad7d4;
@@ -213,7 +213,7 @@ header{
    position: relative;
  }
 
-.grey-box input.text, .grey-box input.input-text, .grey-box input.password, .grey-box input[type="text"], .grey-box textarea, .grey-box textarea.input-textarea, .grey-box iframe.editor, .grey-box select {
+.grey-box input.text, input.date, .grey-box input.input-text, .grey-box input.password, .grey-box input[type="text"], .grey-box textarea, .grey-box textarea.input-textarea, .grey-box iframe.editor, .grey-box select, .grey-box input[type="date"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;

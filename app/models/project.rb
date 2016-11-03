@@ -20,9 +20,21 @@ class Project < ActiveRecord::Base
   foreign_key: :project_id,
   class_name: :Backing
 
+  def collected_funds
+    sum = 0
+    backings.each do |backing|
+      sum += backing.amount
+    end
+    sum
+  end
+
   has_many :backers,
   through: :backings,
   source: :backer
+
+  def num_backers
+    backers.uniq.count
+  end
 
   belongs_to :creator,
   primary_key: :id,
@@ -32,7 +44,8 @@ class Project < ActiveRecord::Base
   has_many :taggings,
   primary_key: :id,
   foreign_key: :project_id,
-  class_name: :Tagging
+  class_name: :Tagging,
+  dependent: :destroy
 
   has_many :tags,
   through: :taggings,

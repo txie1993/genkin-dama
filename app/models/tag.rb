@@ -14,7 +14,8 @@ class Tag < ActiveRecord::Base
   has_many :taggings,
   primary_key: :id,
   foreign_key: :tag_id,
-  class_name: :Tagging
+  class_name: :Tagging,
+  dependent: :destroy
 
   has_many :projects,
   through: :taggings,
