@@ -18,6 +18,17 @@
    margin:0px;
  }
 
+ input.text, input.input-text, input.password, input[type="text"], textarea, textarea.input-textarea, iframe.editor, select {
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #dad7d4;
+    color: #020621;
+    font-size: 14px;
+    margin: 0;
+    padding: 6px 5px;
+    -webkit-font-smoothing: antialiased;
+}
+
  .content {
    height: 100%;
  }
@@ -25,6 +36,8 @@ header{
   display: flex;
   width: 100%;
   justify-content: space-around;
+  border-bottom: 3px solid black;
+  background: pink;
 }
 
 .header-link{
@@ -89,7 +102,7 @@ header{
    font-size: 1.5em;
    background: #eee;
    opacity: 0.1;
-   height: 100%
+   height: 100%;
  }
 
  .login-form {
@@ -174,3 +187,49 @@ header{
    text-align: center;
 
  }
+.project-form-background{
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  background: #eee;
+  opacity: 0.1;
+  height: 100%;
+}
+.project-form-container{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+ .grey-box{
+   background-color: #F8F9FD;
+   border-radius: 6px;
+   display: block;
+   line-height: 30px;
+   margin: 0;
+   padding: 4px;
+   position: relative;
+ }
+
+.grey-box input.text, .grey-box input.input-text, .grey-box input.password, .grey-box input[type="text"], .grey-box textarea, .grey-box textarea.input-textarea, .grey-box iframe.editor, .grey-box select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    line-height: 18px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+
+  .grey-box textarea {
+    height: 70px;
+    vertical-align: top;
+  }
+  .grey-box p {
+    font-size: .75em;
+  }

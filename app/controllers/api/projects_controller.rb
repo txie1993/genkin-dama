@@ -47,7 +47,8 @@ end
     :image_url,
     :description,
     :funding_goal,
-    :creator_id
+    :creator_id,
+    :end_date
     )
   end
 

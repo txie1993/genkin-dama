@@ -22,6 +22,7 @@ class ProjectShow extends React.Component {
         <h4>GOAL: ${project.funding_goal}</h4>
         <img src={project.image_url}></img>
         <p>{project.description}</p>
+        <p>{project.end_date}</p>
 
         <Link to="/">Back to Index</Link>
       </div>
