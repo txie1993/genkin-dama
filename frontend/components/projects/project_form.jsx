@@ -61,7 +61,6 @@ class ProjectForm extends React.Component {
               onChange={this.update('description')} />
           </label>
 
-          <input type="hidden" value={this.props.currentUser.id}></input>
 
           <input type="submit" value={text} />
         </form>

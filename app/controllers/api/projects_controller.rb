@@ -12,7 +12,7 @@ class Api::ProjectsController < ApplicationController
   def destroy
    @project = Project.find(params[:id])
    if @project.destroy
-     render :show
+     render :index
    else
      render json: @project.errors.full_messages, status: 422
    end
@@ -20,6 +20,7 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.creator_id = current_user.id
 
     if @project.save
       render :show
