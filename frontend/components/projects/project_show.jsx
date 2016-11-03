@@ -18,15 +18,39 @@ class ProjectShow extends React.Component {
         }
 
         return (
-            <div>
-                <div>
-                    <h2>{project.title}</h2>
-                    <h4>COLLECTED ${project.collected_funds} OUT OF GOAL: ${project.funding_goal} with {project.num_backers} backers</h4>
-                    <img src={project.image_url}></img>
-                    <p>{project.description}</p>
-                    <p>{project.end_date}</p>
-
-                    <Link to="/">Back to Index</Link>
+            <div className="project-show-container">
+                <div className="project-show-box">
+                    <div className="project-title">
+                        <h2>{project.title}</h2>
+                        <p>by {project.creator.username}</p>
+                    </div>
+                    <div className="project-body">
+                        <div className="project-row">
+                            <div className="project-left" style={{backgroundImage: `url(${project.image_url})`}}>
+                            </div>
+                            <div className="project-right">
+                                <div className="project-right-backers">
+                                    <h1>{project.num_backers}</h1>
+                                    <p>backers</p>
+                                </div>
+                                <div className="project-right-goal">
+                                    <h1>${project.collected_funds}</h1>
+                                    <p>pledged of ${project.funding_goal}</p>
+                                </div>
+                                <div className="project-right-time">
+                                    <h1>{project.remaining_days}</h1>
+                                    <p>days to go</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="project-row">
+                            <div className="project-left">
+                              <p>{project.description}</p>
+                            </div>
+                            <div className="project-right">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

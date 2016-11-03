@@ -50,4 +50,10 @@ class Project < ActiveRecord::Base
   has_many :tags,
   through: :taggings,
   source: :tag
+
+  def remaining_days
+    now = Date.parse(Time.now.to_s)
+    return (end_date - now).to_i if end_date
+    nil
+  end
 end
