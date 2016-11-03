@@ -31,13 +31,13 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <IndexRoute component={ProjectIndexContainer} />
+          <Route path="/projects" component={ProjectIndexContainer} />
+          <Route path="/projects/:projectId" component={ProjectShowContainer} />
+          <Route path="/projects/:projectId/edit" component={ProjectFormContainer} />
+          <Route path="/newproject" component={ProjectFormContainer} />
           <Route path="/login" component={SessionFormContainer} />
           <Route path="/signup" component={SessionFormContainer} />
-            <IndexRoute component={ProjectIndexContainer} />
-            <Route path="/projects" component={ProjectIndexContainer} />
-            <Route path="/projects/:projectId" component={ProjectShowContainer} />
-            <Route path="/projects/:projectId/edit" component={ProjectFormContainer} />
-            <Route path="/projects/new" component={ProjectFormContainer} />
         </Route>
       </Router>
     </Provider>

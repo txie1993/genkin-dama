@@ -41,26 +41,28 @@ class ProjectForm extends React.Component {
               type="text"
               value={this.state.title}
               onChange={this.update('title')} />
+            <br/>
           </label>
           <label>Image URL
             <input
               type="text"
               value={this.state.image_url}
               onChange={this.update('image_url')} />
+            <br/>
           </label>
-          <label>Title
+          <label>Funding Goal
             <input
               type="text"
               value={this.state.funding_goal}
               onChange={this.update('funding_goal')} />
+            <br/>
           </label>
-
-          <label>
+          <label> description
             <textarea
               value={this.state.description}
               onChange={this.update('description')} />
+            <br/>
           </label>
-
 
           <input type="submit" value={text} />
         </form>

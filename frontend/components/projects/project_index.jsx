@@ -20,7 +20,6 @@ class ProjectIndex extends React.Component {
             ))
           }
         </ul>
-        <ProjectForm formType="new" action={this.props.createProject} />
       </div>
     );
   }
