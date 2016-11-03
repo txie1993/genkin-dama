@@ -43,25 +43,25 @@ sufficient CSS styling:
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1.5 days)
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Projects Model, API (1.5 days)
+### Phase 2: Projects Model, API (2 days)
 
-**Objective:** Projects can be created, destroyed, edited through the API. Projects will have reward levels and be able to total their earnings.
+**Objective:** Projects can be created, destroyed, edited through the API.
 
-### Phase 3: Backing (2 days)
+### Phase 3: Backing and Rewards API (2 days)
 
-**Objective:** Users will be able to back projects through the API, or remove their backings.
+**Objective:** Users will be able to back projects through the API, or remove their backings. Projects will have reward levels and be able to total their earnings.
 
 ### Phase 4: Tags (1 day)
 
 **Objective:** Projects can be tagged with multiple tags, and tags are searchable.
 
-### Phase 5: CSS (3 days)
+### Phase 5: CSS (2 days)
 
-**objective:** Site will look like Kickstarter, with backing progress bar. Large slideshow banner on front page.
+**objective:** Site will look like Kickstarter, with backing progress bar. Large slideshow banner on front page. Tabs on project form.
 
 ### Phase 6: - Bonus features (any remaining time)
 
