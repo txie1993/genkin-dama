@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),
+  postToImgur: () => dispatch(postToImgur()),
   deleteProject: id => dispatch(deleteProject(id)),
   createProject: project => dispatch(createProject(project))
 });

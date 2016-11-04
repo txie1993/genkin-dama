@@ -26,7 +26,7 @@ input.text, input.input-text, input.password, input[type="text"], textarea, text
     color: #020621;
     font-size: 14px;
     margin: 0;
-    padding: 6px 5px;
+    padding: 10px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -67,8 +67,9 @@ nav {
 }
 
 .header-button {
-    height: 20px;
+    height: auto;
     margin: 20px;
+    font-weight: normal;
 }
 
 @keyframes fadeIn {
@@ -134,9 +135,8 @@ nav {
     color: #020621;
 }
 
-.login-submit {
+button, input[type="submit"] {
     background-color: #05AF3C;
-    width: inherit;
     color: #FFFFFF;
     font-weight: bold;
     cursor: pointer;
@@ -150,8 +150,8 @@ nav {
     transition-duration: 0.4s;
 }
 
-.login-submit:hover {
-    background-color: black;
+button:hover, input[type="submit"]:hover{
+    background-color: #25CB68;
 }
 
 .login-submit:active {
@@ -291,7 +291,7 @@ nav {
     margin: 0 auto;
     flex-flow: row wrap;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .project-left-2 {
@@ -364,4 +364,13 @@ nav {
 
 .project-right-2 button:hover {
     background-color: #25CB68;
+}
+
+.project-form-container{
+  display: flex;
+}
+
+.project-submit {
+  width: 100%;
+  margin-bottom: 20px;
 }

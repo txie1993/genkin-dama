@@ -21,11 +21,7 @@ class Project < ActiveRecord::Base
   class_name: :Backing
 
   def collected_funds
-    sum = 0
-    backings.each do |backing|
-      sum += backing.amount
-    end
-    sum
+    backings.sum(:amount)
   end
 
   has_many :backers,
@@ -52,6 +48,7 @@ class Project < ActiveRecord::Base
   source: :tag
 
   def remaining_days
+    return "∞" unless end_date;
     now = Date.parse(Time.now.to_s)
     return (end_date - now).to_i if end_date
     nil

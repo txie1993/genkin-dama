@@ -16,6 +16,33 @@ class ProjectForm extends React.Component {
         };
     }
 
+    imgurUpload() {
+        return e => {
+            let data = new FormData();
+            console.log(data);
+            let image = e.target.files[0];
+            data.append("image", image);
+            const fileReader = new FileReader();
+            console.log(data);
+            // debugger
+            $.ajax({
+                method: "POST",
+                url: "https://api.imgur.com/3/image",
+                data: data,
+                datatype: "json",
+                headers: {
+                    "Authorization": "Client-ID b33667a5f51552a"
+                },
+                success: (response) => {
+                    this.setState({["image_url"]: response.data.link});
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        };
+    }
+
     componentDidMount() {
         if (this.props.params) {
             this.props.fetchProject(this.props.params.projectId);
@@ -66,6 +93,7 @@ class ProjectForm extends React.Component {
                                 <input type="text" value={this.state.title} onChange={this.update('title')} className="project-input"/>
 
                             </label>
+                            <p>Your project title and blurb should be simple, specific, and memorable. Our search tools run through these sections of your project, so be sure to incorporate any key words here! These words will help people find your project, so choose them wisely! Your name will be searchable too.</p>
                         </div>
                         <br/>
                         <div className="grey-box">
@@ -79,8 +107,7 @@ class ProjectForm extends React.Component {
 
                         <div className="grey-box">
                             <label>Image URL
-                                <input type="text" value={this.state.image_url} onChange={this.update('image_url')} className="project-input"/>
-                                <p>Your project title and blurb should be simple, specific, and memorable. Our search tools run through these sections of your project, so be sure to incorporate any key words here! These words will help people find your project, so choose them wisely! Your name will be searchable too.</p>
+                                <input type="file" onChange={this.imgurUpload()} className="project-input"/>
                             </label>
                         </div>
                         <br/>

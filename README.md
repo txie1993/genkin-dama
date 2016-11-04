@@ -13,15 +13,15 @@ following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
 - [x] Hosting on Heroku
-- [ ] Backend/Frontend Auth, include Guest login
-- [ ] Projects
+- [x] Display total money gathered relative to goal
+- [x] Backend/Frontend Auth, include Guest login
+- [x] Projects
+- [ ] Replace "image url" in submission form with image upload
 - [ ] Backing Projects, Reward Levels
-- [ ] Display total money gathered relative to goal
 - [ ] Tags on Projects
 - [ ] Progress bar to show how much money has been backed
 - [ ] **Bonus** Search
 - [ ] **Bonus** Animate Progress Bar
-- [ ] **Bonus** Replace "image url" in submission form with image upload
 - [ ] **Bonus** Recommended for You
 - [ ] **Bonus** Caviar-esque login/signup popups (no HTTP request until registered)
 - [ ] **Bonus** Project FAQ

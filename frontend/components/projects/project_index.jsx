@@ -10,6 +10,12 @@ class ProjectIndex extends React.Component {
   render () {
     return (
       <div>
+      <div>
+      <div className="banner"></div>
+      <div className="feature-row">
+      <div className="feature-row-left"></div>
+      <div className="feature-row-right"></div>
+      </div>
         <ul>
           {
             this.props.projects.map(project => (
@@ -20,6 +26,7 @@ class ProjectIndex extends React.Component {
             ))
           }
         </ul>
+      </div>
       </div>
     );
   }
