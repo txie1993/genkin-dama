@@ -12,7 +12,7 @@ GenkinDama is a web application based on Kickstarter built on Rails/Redux.  By t
 following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
-- [ ] Hosting on Heroku
+- [x] Hosting on Heroku
 - [ ] Backend/Frontend Auth, include Guest login
 - [ ] Projects
 - [ ] Backing Projects, Reward Levels
