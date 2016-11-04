@@ -275,6 +275,7 @@ nav {
 
 .project-row {
     display: flex;
+    height:600px;
 }
 
 .project-row-2 {
@@ -284,6 +285,7 @@ nav {
 .project-left {
     display: flex;
     justify-content: flex-start;
+    align-content: flex-start;
     width: 65%;
     padding: 10px;
     margin: 0 auto;
@@ -314,7 +316,6 @@ nav {
 
 .project-right {
     display: flex;
-    justify-content: flex-end;
     flex-direction: column;
     width: 30%;
     padding: 10px;
