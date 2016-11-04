@@ -16,8 +16,10 @@ sufficient CSS styling:
 - [x] Display total money gathered relative to goal
 - [x] Backend/Frontend Auth, include Guest login
 - [x] Projects
-- [ ] Replace "image url" in submission form with image upload
-- [ ] Backing Projects, Reward Levels
+- [x] Replace "image url" in submission form with image upload
+- [ ] Fully styled project index
+- [ ] Backing Projects
+- [ ] Reward Levels
 - [ ] Tags on Projects
 - [ ] Progress bar to show how much money has been backed
 - [ ] **Bonus** Search

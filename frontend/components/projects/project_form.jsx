@@ -19,12 +19,8 @@ class ProjectForm extends React.Component {
     imgurUpload() {
         return e => {
             let data = new FormData();
-            console.log(data);
             let image = e.target.files[0];
             data.append("image", image);
-            const fileReader = new FileReader();
-            console.log(data);
-            // debugger
             $.ajax({
                 method: "POST",
                 url: "https://api.imgur.com/3/image",
@@ -106,9 +102,11 @@ class ProjectForm extends React.Component {
                         <br/>
 
                         <div className="grey-box">
-                            <label>Image URL
-                                <input type="file" onChange={this.imgurUpload()} className="project-input"/>
-                            </label>
+                        <div className="upload-container">
+                                <h4>Upload Image</h4>
+                                <input type="file" title="Click here to upload!" onChange={this.imgurUpload()} className="project-upload"/>
+                                <h4 className="upload-overlay">Click Here to Select File</h4>
+                        </div>
                         </div>
                         <br/>
 

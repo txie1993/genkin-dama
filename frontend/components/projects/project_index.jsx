@@ -13,8 +13,9 @@ class ProjectIndex extends React.Component {
       <div>
       <div className="banner"></div>
       <div className="feature-row">
-      <div className="feature-row-left"></div>
-      <div className="feature-row-right"></div>
+      <div className="feature"></div>
+      <div className="feature"></div>
+      <div className="feature"></div>
       </div>
         <ul>
           {
