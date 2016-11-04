@@ -43,11 +43,12 @@ class ProjectShow extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="project-row">
-                            <div className="project-left">
+                        <div className="project-row-2">
+                            <div className="project-left-2">
                               <p>{project.description}</p>
                             </div>
-                            <div className="project-right">
+                            <div className="project-right-2">
+                              <button>Back this Project</button>
                             </div>
                         </div>
                     </div>
