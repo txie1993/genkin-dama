@@ -4,6 +4,7 @@ class ProjectForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.uploadStatusMessage = this.uploadStatusMessage.bind(this);
 
         // use project in store if updating; start with blank project if new
         this.state = this.props.project || {
@@ -14,6 +15,11 @@ class ProjectForm extends React.Component {
             creator_id: "",
             end_date: ""
         };
+    }
+
+    uploadStatusMessage() {
+      if (this.state.image_url === "") return "Click Here to Select File";
+      else return "Upload Complete!";
     }
 
     imgurUpload() {
@@ -30,7 +36,9 @@ class ProjectForm extends React.Component {
                     "Authorization": "Client-ID b33667a5f51552a"
                 },
                 success: (response) => {
+                  console.log(response);
                     this.setState({["image_url"]: response.data.link});
+                    this.uploadStatus = true;
                 },
                 cache: false,
                 contentType: false,
@@ -105,7 +113,7 @@ class ProjectForm extends React.Component {
                         <div className="upload-container">
                                 <h4>Upload Image</h4>
                                 <input type="file" title="Click here to upload!" onChange={this.imgurUpload()} className="project-upload"/>
-                                <h4 className="upload-overlay">Click Here to Select File</h4>
+                                <h4 className="upload-overlay">{this.uploadStatusMessage()}</h4>
                         </div>
                         </div>
                         <br/>

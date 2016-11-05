@@ -316,7 +316,7 @@ button:hover, input[type="submit"]:hover {
 
 .project-row {
     display: flex;
-    height: 40%;
+    height: 500px;
 }
 
 .project-row-2 {
