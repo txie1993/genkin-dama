@@ -8,6 +8,7 @@
 #  backing_id  :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  amount      :integer          not null
 #
 
 class Reward < ActiveRecord::Base

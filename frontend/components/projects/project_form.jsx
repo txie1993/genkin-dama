@@ -19,11 +19,13 @@ class ProjectForm extends React.Component {
 
     uploadStatusMessage() {
       if (this.state.image_url === "") return "Click Here to Select File";
+      else if (this.state.image_url === "loading") return "Uploading...";
       else return "Upload Complete!";
     }
 
     imgurUpload() {
         return e => {
+          this.setState({["image_url"]: "loading"});
             let data = new FormData();
             let image = e.target.files[0];
             data.append("image", image);

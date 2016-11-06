@@ -10,6 +10,7 @@
 #  creator_id   :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  end_date     :date
 #
 
 class Project < ActiveRecord::Base
