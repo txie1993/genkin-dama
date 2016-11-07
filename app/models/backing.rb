@@ -18,11 +18,6 @@ class Backing < ActiveRecord::Base
   foreign_key: :project_id,
   class_name: :Project
 
-  has_many :rewards,
-  primary_key: :id,
-  foreign_key: :backing_id,
-  class_name: :Reward
-
   belongs_to :backer,
   primary_key: :id,
   foreign_key: :backer_id,

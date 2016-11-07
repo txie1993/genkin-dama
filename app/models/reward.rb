@@ -5,19 +5,19 @@
 #  id          :integer          not null, primary key
 #  name        :string           not null
 #  description :text             not null
-#  backing_id  :integer          not null
+#  project_id  :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  amount      :integer          not null
 #
 
 class Reward < ActiveRecord::Base
-  validates :name, :description, :backing_id, :amount, presence: true
+  validates :name, :description, :project_id, :amount, presence: true
 
-  belongs_to :backing,
+  belongs_to :project,
   primary_key: :id,
-  foreign_key: :backing_id,
-  class_name: :Backing
+  foreign_key: :project_id,
+  class_name: :Project
 
   has_many :rewardings
 

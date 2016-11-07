@@ -21,6 +21,8 @@ class Project < ActiveRecord::Base
   foreign_key: :project_id,
   class_name: :Backing
 
+  has_many :rewards
+
   def collected_funds
     backings.sum(:amount)
   end

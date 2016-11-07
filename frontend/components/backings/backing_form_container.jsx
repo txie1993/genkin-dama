@@ -9,8 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, {location}) => {
   const currUrl = location.pathname.slice(1);
-  const formType = (currUrl === 'newbacking') ? "new" : "update";
-
+  const formType = "new";
   return {
   fetchBacking: id => dispatch(fetchBacking(id)),
   updateBacking: backing => dispatch(updateBacking(backing)),

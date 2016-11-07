@@ -1,5 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
+
+const backingLink = id => {
+  return (e) => {
+    e.preventDefault();
+    const url = `/projects/${id}/rewards`;
+    hashHistory.replace(url);
+  };
+};
 
 class ProjectShow extends React.Component {
     componentDidMount() {
@@ -10,6 +18,7 @@ class ProjectShow extends React.Component {
         if (nextProps.value !== this.props.value)
             this.props.fetchProject(nextProps.params.projectId);
         }
+
 
     render() {
         const project = this.props.project;
@@ -26,8 +35,9 @@ class ProjectShow extends React.Component {
                     </div>
                     <div className="project-body">
                         <div className="project-row">
-                            <div className="project-left" style={{backgroundImage: `url(${project.image_url})`}}>
-                            </div>
+                            <div className="project-left" style={{
+                                backgroundImage: `url(${project.image_url})`
+                            }}></div>
                             <div className="project-right">
                                 <div className="project-right-backers">
                                     <h1>{project.num_backers}</h1>
@@ -45,10 +55,10 @@ class ProjectShow extends React.Component {
                         </div>
                         <div className="project-row-2">
                             <div className="project-left-2">
-                              <p>{project.description}</p>
+                                <p>{project.description}</p>
                             </div>
                             <div className="project-right-2">
-                              <button>Back this Project</button>
+                                <button onClick={backingLink(project.id)}>Back This Project</button>&nbsp;
                             </div>
                         </div>
                     </div>

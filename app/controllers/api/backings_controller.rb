@@ -19,7 +19,7 @@ class Api::BackingsController < ApplicationController
 
   def create
     @backing = Backing.new(backing_params)
-    @backing.creator_id = current_user.id
+    @backing.backer_id = current_user.id
 
     if @backing.save
       render :show

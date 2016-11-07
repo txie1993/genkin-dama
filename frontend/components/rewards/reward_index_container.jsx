@@ -1,18 +1,21 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import RewardIndex from './reward_index';
-import { fetchRewards, deleteReward, createReward } from '../../actions/reward_actions';
+import {fetchRewards} from '../../actions/reward_actions';
+import {fetchProjects} from '../../actions/project_actions';
+import {createBacking} from '../../actions/backing_actions';
 
-const mapStateToProps = state => ({
-  rewards: Object.keys(state.rewards).map(id => state.rewards[id])
-});
+const mapStateToProps = (state, ownProps) => {
+  // console.log(state);
+    return {
+        rewards: Object.keys(state.rewards).map(id => state.rewards[id]),
+        project: state.projects[ownProps.params.projectId]
+    };
+};
 
 const mapDispatchToProps = dispatch => ({
-  fetchRewards: () => dispatch(fetchRewards()),
-  deleteReward: id => dispatch(deleteReward(id)),
-  createReward: reward => dispatch(createReward(reward))
+    fetchRewards: () => dispatch(fetchRewards()),
+    fetchProjects: () => dispatch(fetchProjects()),
+    createBacking: (backing) => dispatch(createBacking(backing))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RewardIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(RewardIndex);

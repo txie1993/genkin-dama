@@ -18,9 +18,16 @@ class User < ActiveRecord::Base
   class_name: :Backing,
   dependent: :destroy
 
+
+  has_many :rewardings,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :Rewarding,
+  dependent: :destroy
+
   has_many :rewards,
-  through: :backings,
-  source: :rewards
+  through: :rewardings,
+  source: :reward
 
   has_many :projects,
   primary_key: :id,
