@@ -9,6 +9,7 @@ class RewardIndex extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateAmt = this.updateAmt.bind(this);
         this.newReward = this.newReward.bind(this);
+        this.createAllRewardings = this.createAllRewardings.bind(this);
     }
     componentDidMount() {
         this.props.fetchRewards();
@@ -19,6 +20,13 @@ class RewardIndex extends React.Component {
         e.preventDefault();
         this.props.createBacking({project_id: this.props.project.id, amount: this.amt});
         this.props.router.push(`/projects/${this.props.project.id}`);
+    }
+
+    createAllRewardings(id, value) {
+      this.props.project.rewards.map((reward) => {
+        console.log(reward);
+        if(reward.amount <= value) this.props.createRewarding({reward_id: reward.id});
+      });
     }
 
     updateAmt() {
@@ -33,6 +41,10 @@ class RewardIndex extends React.Component {
             const url = `/projects/${id}/rewards/new`;
             hashHistory.replace(url);
         };
+    }
+
+    sortedRewards() {
+        return this.props.project.rewards.sort((a, b) => a.amount - b.amount);
     }
 
     render() {
@@ -51,7 +63,7 @@ class RewardIndex extends React.Component {
                                 </form>
                             </div>
                         </li>
-                        {this.props.project.rewards.map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push}/>))}
+                        {this.sortedRewards().map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push} createAllRewardings={this.createAllRewardings}/>))}
                     </ul>
                     <button onClick={this.newReward(this.props.project.id)}>Add Reward</button>
                 </div>

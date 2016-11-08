@@ -21,6 +21,7 @@ export const createReward = reward => ({
   reward
 });
 
+
 export const updateReward = reward => ({
   type: UPDATE_REWARD,
   reward
@@ -40,6 +41,7 @@ export const receiveReward = reward => ({
   type: RECEIVE_REWARD,
   reward
 });
+
 
 export const removeReward = reward => ({
   type: REMOVE_REWARD,

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :projects, only: [:create, :destroy, :show, :update, :index]
     resources :backings, only: [:create, :destroy, :show, :update, :index]
+    resources :rewardings, only: [:create, :destroy, :show, :index]
     resources :rewards, only: [:create, :destroy, :show, :update, :index]
     resources :tags, only: [:create, :destroy, :show, :update]
     resources :taggings, only: [:create, :destroy]

@@ -36,6 +36,7 @@ const RewardsMiddleware = ({getState, dispatch}) => next => action => {
     case CREATE_REWARD:
       createReward(action.reward, receiveRewardSuccess);
       return next(action);
+
     case UPDATE_REWARD:
       success = reward => {
         dispatch(receiveReward(reward));
@@ -46,6 +47,7 @@ const RewardsMiddleware = ({getState, dispatch}) => next => action => {
     case DELETE_REWARD:
       deleteReward(action.id, removeRewardSuccess);
       return next(action);
+
     default:
       return next(action);
   }
