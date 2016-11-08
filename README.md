@@ -18,7 +18,7 @@ sufficient CSS styling:
 - [x] Projects
 - [x] Replace "image url" in submission form with image upload
 - [ ] Fully styled project index
-- [ ] Backing Projects
+- [x] Backing Projects
 - [ ] Reward Levels
 - [ ] Tags on Projects
 - [ ] Progress bar to show how much money has been backed

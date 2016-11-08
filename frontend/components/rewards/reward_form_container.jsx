@@ -8,8 +8,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, {location}) => {
-  const currUrl = location.pathname.slice(1);
-  const formType = (currUrl === 'newreward') ? "new" : "update";
+  const currUrl = location.pathname.slice(-3);
+  console.log(currUrl);
+  const formType = (currUrl === 'new') ? "new" : "update";
 
   return {
   fetchReward: id => dispatch(fetchReward(id)),

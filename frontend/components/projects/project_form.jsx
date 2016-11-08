@@ -38,7 +38,6 @@ class ProjectForm extends React.Component {
                     "Authorization": "Client-ID b33667a5f51552a"
                 },
                 success: (response) => {
-                  console.log(response);
                     this.setState({["image_url"]: response.data.link});
                     this.uploadStatus = true;
                 },
@@ -76,7 +75,6 @@ class ProjectForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.props.formType);
         e.preventDefault();
         this.props.formType === 'new'
             ? this.props.createProject(this.state)
@@ -135,6 +133,10 @@ class ProjectForm extends React.Component {
                             </label>
                         </div>
                         <br/>
+
+                      <div className="project-rewards">
+
+                      </div>
 
                         <input type="submit" value={text} className="project-submit"/>
                     </form>

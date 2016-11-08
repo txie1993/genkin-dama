@@ -14,7 +14,6 @@ const postToImgur = () => {
     },
     data: formData,
     success: (response) => {
-      console.log(response);
       const photo = response.data.link;
     },
     cache: false,

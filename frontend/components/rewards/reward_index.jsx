@@ -1,5 +1,6 @@
 import React from 'react';
 import RewardIndexItem from './reward_index_item';
+import {Link, hashHistory} from 'react-router';
 
 class RewardIndex extends React.Component {
     constructor(props) {
@@ -7,6 +8,7 @@ class RewardIndex extends React.Component {
         const amt = 0;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateAmt = this.updateAmt.bind(this);
+        this.newReward = this.newReward.bind(this);
     }
     componentDidMount() {
         this.props.fetchRewards();
@@ -25,28 +27,39 @@ class RewardIndex extends React.Component {
         };
     }
 
+    newReward(id) {
+        return (e) => {
+            e.preventDefault();
+            const url = `/projects/${id}/rewards/new`;
+            hashHistory.replace(url);
+        };
+    }
+
     render() {
-      if (this.props.project)
-        return (
-            <div>
-                <h1>Choose a Reward Level</h1>
-                <ul>
-                    <li>
-                        <h4>Make a pledge without a reward</h4>
-                        <div className="hidden" id="custom-pledge">
-                            <form onSubmit={this.handleSubmit}>
-                                <h3>Pledge Amount</h3>
-                                <input type="text" onChange={this.updateAmt()}></input>
-                                <input type="submit" value="Submit"/>
-                            </form>
-                        </div>
-                    </li>
-                    {this.props.project.rewards.map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking}/>))}
-                </ul>
-            </div>
-        );
+        if (this.props.project)
+            return (
+                <div>
+                    <h1>Choose a Reward Level</h1>
+                    <ul>
+                        <li>
+                            <h4>Make a pledge without a reward</h4>
+                            <div className="hidden" id="custom-pledge">
+                                <form onSubmit={this.handleSubmit}>
+                                    <h3>Pledge Amount</h3>
+                                    <input type="text" onChange={this.updateAmt()}></input>
+                                    <input type="submit" value="Submit"/>
+                                </form>
+                            </div>
+                        </li>
+                        {this.props.project.rewards.map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking}/>))}
+                    </ul>
+                    <button onClick={this.newReward(this.props.project.id)}>Add Reward</button>
+                </div>
+            );
         else {
-          return (<div>Loading...</div>);
+            return (
+                <div>Loading...</div>
+            );
         }
     }
 }

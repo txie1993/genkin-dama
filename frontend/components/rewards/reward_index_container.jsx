@@ -5,7 +5,6 @@ import {fetchProjects} from '../../actions/project_actions';
 import {createBacking} from '../../actions/backing_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state);
     return {
         rewards: Object.keys(state.rewards).map(id => state.rewards[id]),
         project: state.projects[ownProps.params.projectId]

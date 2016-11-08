@@ -19,7 +19,6 @@ class Api::RewardsController < ApplicationController
 
   def create
     @reward = Reward.new(reward_params)
-    @reward.creator_id = current_user.id
 
     if @reward.save
       render :show
@@ -45,7 +44,7 @@ end
     :project_id,
     :name,
     :description,
-    :amountc
+    :amount
     )
   end
 end
