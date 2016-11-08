@@ -11,6 +11,7 @@
 
 class Rewarding < ActiveRecord::Base
   validates :user_id, :reward_id, presence:true
+  validates :user_id, uniqueness: {scope: :reward_id, message: "Can only claim reward once"}
   belongs_to :user
 
   belongs_to :reward

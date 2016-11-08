@@ -5,7 +5,7 @@ import {Link, hashHistory} from 'react-router';
 
 const RewardIndexItem = ({reward, router, push, createBacking, createAllRewardings}) => {
     return (
-        <li className="reward-item" onClick={() => {
+        <li className="reward-item grow" onClick={() => {
               createBacking({project_id: reward.project_id, amount: reward.amount});
               createAllRewardings(reward.id, reward.amount);
               push(`/projects/${reward.project_id}`);

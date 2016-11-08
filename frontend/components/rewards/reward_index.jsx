@@ -57,7 +57,7 @@ class RewardIndex extends React.Component {
                     <div className="reward-column">
                       <h1>Support this project</h1>
                         <ul className="rewards-list">
-                            <li className="reward-item">
+                            <li className="reward-item grow">
                                 <h4>Make a pledge without a reward</h4>
                                 <div className="hidden" id="custom-pledge">
                                     <form onSubmit={this.handleSubmit}>

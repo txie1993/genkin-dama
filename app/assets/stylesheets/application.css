@@ -97,6 +97,9 @@ nav {
     animation-duration: 0.5s;
 }
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
 .login-form-box {
     border: 4px grey;
     background: white;
