@@ -19,7 +19,8 @@ class Reward < ActiveRecord::Base
   foreign_key: :project_id,
   class_name: :Project
 
-  has_many :rewardings
+  has_many :rewardings,
+  dependent: :destroy
 
   has_many :rewardees,
   through: :rewardings,

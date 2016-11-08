@@ -415,3 +415,53 @@ button:hover, input[type="submit"]:hover {
     width: 100%;
     margin-bottom: 20px;
 }
+
+.reward-index-container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.reward-index{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.reward-column {
+  width: 55%;
+  justify-content: flex-start;
+}
+
+.reward-sidebar{
+  width:30%;
+  justify-content: flex-end;
+  padding: 5%;
+
+}
+
+.rewards-list{
+  list-style: none;
+}
+
+.reward-button{
+  margin: 20px 40px;
+}
+
+.reward-item{
+  margin-bottom: 20px;
+font-size: 14px;
+color: #020621;
+display: block;
+background: #F8F9FD;
+border: 1px solid #e0e4fb;
+border-radius: 6px;
+position: relative;
+word-break: break-word;
+cursor: pointer;
+}
+
+.reward-item:hover{
+
+background: white;
+
+}
