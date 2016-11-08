@@ -1,14 +1,20 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
 
-const RewardIndexItem = ({reward, router, createBacking}) => {
-  console.log(reward);
+
+
+const RewardIndexItem = ({reward, router, push, createBacking}) => {
     return (
         <li>
             <Link to={`/backing/new`}>
                 {reward.name}
             </Link>&nbsp;
-            <button onClick={() => createBacking({project_id: reward.project_id, amount: reward.amount})}>Pledge ${reward.amount}</button>
+            <button onClick={
+                () => {
+                  createBacking({project_id: reward.project_id, amount: reward.amount});
+                  push(`/projects/${reward.project_id}`);
+                }
+              }>Pledge ${reward.amount}</button>
 
         </li>
     );

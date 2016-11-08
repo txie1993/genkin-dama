@@ -18,7 +18,7 @@ class RewardIndex extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createBacking({project_id: this.props.project.id, amount: this.amt});
-        this.props.router.push("/");
+        this.props.router.push(`/projects/${this.props.project.id}`);
     }
 
     updateAmt() {
@@ -51,7 +51,7 @@ class RewardIndex extends React.Component {
                                 </form>
                             </div>
                         </li>
-                        {this.props.project.rewards.map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking}/>))}
+                        {this.props.project.rewards.map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push}/>))}
                     </ul>
                     <button onClick={this.newReward(this.props.project.id)}>Add Reward</button>
                 </div>

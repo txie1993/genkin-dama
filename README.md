@@ -17,13 +17,15 @@ sufficient CSS styling:
 - [x] Backend/Frontend Auth, include Guest login
 - [x] Projects
 - [x] Replace "image url" in submission form with image upload
-- [ ] Fully styled project index
 - [x] Backing Projects
-- [ ] Reward Levels
+- [x] Reward Levels
+- [ ] Style Backing Form
+- [ ] Style Reward Form
 - [ ] Tags on Projects
-- [ ] Progress bar to show how much money has been backed
-- [ ] **Bonus** Search
+- [ ] Style project index
+- [ ] Style Navbar
 - [ ] **Bonus** Animate Progress Bar
+- [ ] **Bonus** Search
 - [ ] **Bonus** Recommended for You
 - [ ] **Bonus** Caviar-esque login/signup popups (no HTTP request until registered)
 - [ ] **Bonus** Project FAQ
