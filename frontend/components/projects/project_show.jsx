@@ -1,6 +1,14 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
 
+const editLink = id => {
+    return (e) => {
+        e.preventDefault();
+        const url = `/projects/${id}/edit`;
+        hashHistory.push(url);
+    };
+};
+
 const backingLink = id => {
     return (e) => {
         e.preventDefault();
@@ -18,7 +26,8 @@ class ProjectShow extends React.Component {
         super(props);
         this.state = {
             tagForm: false,
-            addTagForm: false
+            addTagForm: false,
+            dummy: ""
         };
         this.tagSelect = "";
         this.newTagName = "";
@@ -28,6 +37,7 @@ class ProjectShow extends React.Component {
         this.showForm = this.showForm.bind(this);
         this.showNewForm = this.showNewForm.bind(this);
         this.setTagName = this.setTagName.bind(this);
+        this.chooseTag = this.chooseTag.bind(this);
     }
     componentDidMount() {
         this.props.fetchProject(this.props.params.projectId);
@@ -44,15 +54,17 @@ class ProjectShow extends React.Component {
     handleTag(e) {
         e.preventDefault();
         this.props.createTagging({project_id: this.props.project.id, tag_id: this.tagSelect});
+        this.setState({dummy: "a"});
     }
     handleNewTag(e) {
         e.preventDefault();
         this.props.createTag({name: this.newTagName});
-        const url = `/projects/${this.props.project.id}`;
-        hashHistory.replace(url);
+
     }
 
     showForm() {
+      this.tagSelect = "";
+      this.newTagName = "";
         this.setState({tagForm: true});
     }
     showNewForm() {
@@ -63,6 +75,25 @@ class ProjectShow extends React.Component {
     setTagName(e) {
       this.newTagName = e.target.value;
     }
+    chooseTag(e) {
+      this.tagSelect = e.target.value;
+    }
+
+    formLinks() {
+      if (this.props.currentUser.id === this.props.project.creator_id){
+        return (
+          <div>
+            <button onClick={editLink(this.props.project.id)}>Edit</button>&nbsp;
+            <button onClick={() => this.props.deleteProject(this.props.project.id)}>Delete</button>
+          </div>
+        );
+      }
+      else {
+        return (
+          <button onClick={backingLink(this.props.project.id)}>Back This Project</button>
+        );
+      }
+    }
 
     tagForm() {
         if (this.state.tagForm)
@@ -70,7 +101,7 @@ class ProjectShow extends React.Component {
                 <div className="fade-in">
                     <form onSubmit={this.handleTag}>
                         <h3>Pledge Amount</h3>
-                        <select>
+                        <select onChange={this.chooseTag}>
                             {this.props.tags.map(tag => <option value={tag.id}>{tag.name}</option>)}
                         </select>
                         <input type="submit" value="Add Tag"/>
@@ -129,12 +160,17 @@ class ProjectShow extends React.Component {
                         <div className="project-row-2">
                             <div className="project-left-2">
                                 <p>{project.description}</p>
+                                <div className="project-tags">
+                                  <ul>
+                                    {project.tags.map(tag => <li>{tag.name}</li>)}
+                                  </ul>
+                                </div>
                                 <button onClick={this.showForm}>Add Tag</button>
                                 {this.tagForm()}
                                 {this.newTagForm()}
                             </div>
                             <div className="project-right-2">
-                                <button onClick={backingLink(project.id)}>Back This Project</button>&nbsp;
+                              {this.formLinks()}
                             </div>
                         </div>
                     </div>

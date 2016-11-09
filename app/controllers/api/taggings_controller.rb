@@ -42,9 +42,7 @@ class Api::TaggingsController < ApplicationController
   def tagging_params
     params.require(:tagging).permit(
     :project_id,
-    :name,
-    :description,
-    :amount
+    :tag_id
     )
   end
 end

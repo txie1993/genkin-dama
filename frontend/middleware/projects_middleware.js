@@ -39,7 +39,6 @@ const ProjectsMiddleware = ({getState, dispatch}) => next => action => {
     case UPDATE_PROJECT:
       success = project => {
         dispatch(receiveProject(project));
-        hashHistory.push("/");
       };
       updateProject(action.project, success);
       return next(action);

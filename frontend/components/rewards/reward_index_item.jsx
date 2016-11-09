@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
 
-
+const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 
 const RewardIndexItem = ({reward, router, push, createBacking, createRewarding}) => {
     return (
@@ -11,7 +13,7 @@ const RewardIndexItem = ({reward, router, push, createBacking, createRewarding})
               push(`/projects/${reward.project_id}`);
             }}>
             <div className="reward-content">
-            <h2>${reward.amount} or more</h2>
+            <h2>${numberWithCommas(reward.amount)} or more</h2>
             <h3>{reward.name}</h3>
             <p>{reward.description}</p>
             </div>

@@ -18,14 +18,17 @@ class ProjectForm extends React.Component {
     }
 
     uploadStatusMessage() {
-      if (this.state.image_url === "") return "Click Here to Select File";
-      else if (this.state.image_url === "loading") return "Uploading...";
-      else return "Upload Complete!";
-    }
+        if (this.state.image_url === "")
+            return "Click Here to Select File";
+        else if (this.state.image_url === "loading")
+            return "Uploading...";
+        else
+            return "Upload Complete!";
+        }
 
     imgurUpload() {
         return e => {
-          this.setState({["image_url"]: "loading"});
+            this.setState({["image_url"]: "loading"});
             let data = new FormData();
             let image = e.target.files[0];
             data.append("image", image);
@@ -76,10 +79,13 @@ class ProjectForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.formType === 'new'
-            ? this.props.createProject(this.state)
-            : this.props.updateProject(this.state);
-        this.props.router.push("/");
+        if (this.props.formType === 'new') {
+            this.props.createProject(this.state);
+            this.props.router.push("/");
+        } else {
+            this.props.updateProject(this.state);
+            this.props.router.push(`/projects/${this.props.project.id}`);
+        }
     }
 
     render() {
@@ -110,11 +116,11 @@ class ProjectForm extends React.Component {
                         <br/>
 
                         <div className="grey-box">
-                        <div className="upload-container">
+                            <div className="upload-container">
                                 <h4>Upload Image</h4>
                                 <input type="file" title="Click here to upload!" onChange={this.imgurUpload()} className="project-upload"/>
                                 <h4 className="upload-overlay">{this.uploadStatusMessage()}</h4>
-                        </div>
+                            </div>
                         </div>
                         <br/>
 
@@ -134,9 +140,7 @@ class ProjectForm extends React.Component {
                         </div>
                         <br/>
 
-                      <div className="project-rewards">
-
-                      </div>
+                        <div className="project-rewards"></div>
 
                         <input type="submit" value={text} className="project-submit"/>
                     </form>

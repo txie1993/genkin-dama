@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProjectShow from './project_show';
-import { fetchProject } from '../../actions/project_actions';
+import { fetchProject, deleteProject } from '../../actions/project_actions';
 import { createTag, fetchTags } from '../../actions/tag_actions';
 import { createTagging, deleteTagging } from '../../actions/tagging_actions';
 
@@ -15,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
   createTag: tag => dispatch(createTag(tag)),
   fetchTags: () => dispatch(fetchTags()),
   createTagging: tagging => dispatch(createTagging(tagging)),
-  deleteTagging: id => dispatch(deleteTagging(id))
+  deleteTagging: id => dispatch(deleteTagging(id)),
+  deleteProject: id => dispatch(deleteProject(id))
 });
 
 export default connect(

@@ -23,14 +23,6 @@ class RewardIndex extends React.Component {
         this.props.createBacking({project_id: this.props.project.id, amount: this.amt});
         this.props.router.push(`/projects/${this.props.project.id}`);
     }
-    //
-    // createAllRewardings(id, value) {
-    //     this.props.project.rewards.map((reward) => {
-    //         if (reward.amount <= value)
-    //             this.props.createRewarding({reward_id: reward.id});
-    //         }
-    //     );
-    // }
 
     updateAmt() {
         return (e) => {
