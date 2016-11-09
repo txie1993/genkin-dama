@@ -19,7 +19,7 @@ const personalGreeting = (currentUser, logout) => (
         <button className="header-button" onClick={logout}>Log Out</button>
         <p>My Projects!</p>
         <ul>
-          {currentUser.projects.map(project => <li>{project.title}</li>)}
+          {currentUser.projects.map(project => <li key={project.id}>{project.title}</li>)}
         </ul>
       </div>
     </div>

@@ -3,7 +3,8 @@ import RewardShow from './reward_show';
 import { fetchReward } from '../../actions/reward_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  reward: state.rewards[ownProps.params.rewardId]
+  reward: state.rewards[ownProps.params.rewardId],
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -8,7 +8,8 @@ import {createBacking} from '../../actions/backing_actions';
 const mapStateToProps = (state, ownProps) => {
     return {
         rewards: Object.keys(state.rewards).map(id => state.rewards[id]),
-        project: state.projects[ownProps.params.projectId]
+        project: state.projects[ownProps.params.projectId],
+        currentUser: state.session.currentUser
     };
 };
 

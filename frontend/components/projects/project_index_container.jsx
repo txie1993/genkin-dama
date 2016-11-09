@@ -3,12 +3,12 @@ import ProjectIndex from './project_index';
 import { fetchProjects, deleteProject, createProject } from '../../actions/project_actions';
 
 const mapStateToProps = state => ({
-  projects: Object.keys(state.projects).map(id => state.projects[id])
+  projects: Object.keys(state.projects).map(id => state.projects[id]),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),
-  postToImgur: () => dispatch(postToImgur()),
   deleteProject: id => dispatch(deleteProject(id)),
   createProject: project => dispatch(createProject(project))
 });

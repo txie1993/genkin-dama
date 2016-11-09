@@ -5,7 +5,8 @@ import { fetchReward, updateReward, createReward } from '../../actions/reward_ac
 
 const mapStateToProps = (state, ownProps) => ({
   loggedIn: Boolean(state.session.currentUser),
-  project: state.projects[ownProps.params.projectId]
+  project: state.projects[ownProps.params.projectId],
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, {location}) => {

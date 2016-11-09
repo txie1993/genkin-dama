@@ -19,8 +19,13 @@ class Api::RewardingsController < ApplicationController
 
   def create
     @rewarding = Rewarding.new(rewarding_params)
+
     @rewarding.user_id = current_user.id
-    if @rewarding.save
+    if @rewarding.valid?
+      @rewarding.reward.project.rewards.each do |reward|
+        next unless Rewarding.where(reward_id: reward.id, user_id: current_user.id).empty?
+        Rewarding.create(reward_id: reward.id, user_id: current_user.id) if reward.amount <= @rewarding.reward.amount
+      end
       render :show
     else
       render json: @rewarding.errors.full_messages, status: 422

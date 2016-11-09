@@ -9,7 +9,6 @@ class RewardIndex extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateAmt = this.updateAmt.bind(this);
         this.newReward = this.newReward.bind(this);
-        this.createAllRewardings = this.createAllRewardings.bind(this);
         this.revealCustom = this.revealCustom.bind(this);
         this.customPledge = this.customPledge.bind(this);
         this.state = {revealed: false};
@@ -24,15 +23,14 @@ class RewardIndex extends React.Component {
         this.props.createBacking({project_id: this.props.project.id, amount: this.amt});
         this.props.router.push(`/projects/${this.props.project.id}`);
     }
-
-    createAllRewardings(id, value) {
-        this.props.project.rewards.map((reward) => {
-            console.log(reward);
-            if (reward.amount <= value)
-                this.props.createRewarding({reward_id: reward.id});
-            }
-        );
-    }
+    //
+    // createAllRewardings(id, value) {
+    //     this.props.project.rewards.map((reward) => {
+    //         if (reward.amount <= value)
+    //             this.props.createRewarding({reward_id: reward.id});
+    //         }
+    //     );
+    // }
 
     updateAmt() {
         return (e) => {
@@ -76,13 +74,13 @@ class RewardIndex extends React.Component {
                         <div className="reward-column">
                             <h1>Support this project</h1>
                             <ul className="rewards-list">
-                                <li className="reward-item">
+                                <li className="reward-item grow">
                                   <div className="reward-content">
                                       <h2 onClick={this.revealCustom}>Make a pledge without a reward</h2>
                                     {this.customPledge()}
                                   </div>
                                 </li>
-                                {this.sortedRewards().map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push} createAllRewardings={this.createAllRewardings}/>))}
+                                {this.sortedRewards().map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push} createRewarding={this.props.createRewarding}/>))}
                             </ul>
                             <button className="reward-button" onClick={this.newReward(this.props.project.id)}>Add Reward</button>
                         </div>

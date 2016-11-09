@@ -3,7 +3,8 @@ import ProjectShow from './project_show';
 import { fetchProject } from '../../actions/project_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  project: state.projects[ownProps.params.projectId]
+  project: state.projects[ownProps.params.projectId],
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
