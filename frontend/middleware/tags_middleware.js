@@ -36,7 +36,6 @@ const TagsMiddleware = ({getState, dispatch}) => next => action => {
     case CREATE_TAG:
       createTag(action.tag, receiveTagSuccess);
       return next(action);
-
     case UPDATE_TAG:
       success = tag => {
         dispatch(receiveTag(tag));
@@ -47,7 +46,6 @@ const TagsMiddleware = ({getState, dispatch}) => next => action => {
     case DELETE_TAG:
       deleteTag(action.id, removeTagSuccess);
       return next(action);
-
     default:
       return next(action);
   }

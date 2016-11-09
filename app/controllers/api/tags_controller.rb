@@ -19,7 +19,6 @@ class Api::TagsController < ApplicationController
 
   def create
     @tag = Tag.new(tag_params)
-
     if @tag.save
       render :show
     else
