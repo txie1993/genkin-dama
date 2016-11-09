@@ -19,9 +19,11 @@ class Project < ActiveRecord::Base
   has_many :backings,
   primary_key: :id,
   foreign_key: :project_id,
-  class_name: :Backing
+  class_name: :Backing,
+  dependent: :destroy
 
-  has_many :rewards
+  has_many :rewards,
+  dependent: :destroy
 
   def collected_funds
     backings.sum(:amount)

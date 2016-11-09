@@ -10,6 +10,9 @@ class RewardIndex extends React.Component {
         this.updateAmt = this.updateAmt.bind(this);
         this.newReward = this.newReward.bind(this);
         this.createAllRewardings = this.createAllRewardings.bind(this);
+        this.revealCustom = this.revealCustom.bind(this);
+        this.customPledge = this.customPledge.bind(this);
+        this.state = {revealed: false};
     }
     componentDidMount() {
         this.props.fetchRewards();
@@ -49,34 +52,44 @@ class RewardIndex extends React.Component {
         return this.props.project.rewards.sort((a, b) => a.amount - b.amount);
     }
 
+    revealCustom() {
+        this.state.revealed ? this.setState({["revealed"]: false}) : this.setState({["revealed"]: true});
+    }
+
+    customPledge() {
+        if (this.state.revealed) return (
+                <div className="fade-in" id="custom-pledge">
+                    <form onSubmit={this.handleSubmit}>
+                        <h3>Pledge Amount</h3>
+                        <input type="text" onChange={this.updateAmt()}></input>
+                        <input type="submit" id="continue-button" value="Continue"/>
+                    </form>
+                </div>
+        );
+    }
+
     render() {
         if (this.props.project)
             return (
                 <div className="reward-index-container">
-                <div className="reward-index">
-                    <div className="reward-column">
-                      <h1>Support this project</h1>
-                        <ul className="rewards-list">
-                            <li className="reward-item grow">
-                                <h4>Make a pledge without a reward</h4>
-                                <div className="hidden" id="custom-pledge">
-                                    <form onSubmit={this.handleSubmit}>
-                                        <h3>Pledge Amount</h3>
-                                        <input type="text" onChange={this.updateAmt()}></input>
-                                        <input type="submit" value="Submit"/>
-                                    </form>
-                                </div>
-                            </li>
-                            {this.sortedRewards().map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push} createAllRewardings={this.createAllRewardings}/>))}
-                        </ul>
-                        <button className="reward-button" onClick={this.newReward(this.props.project.id)}>Add Reward</button>
+                    <div className="index">
+                        <div className="reward-column">
+                            <h1>Support this project</h1>
+                            <ul className="rewards-list">
+                                <li className="reward-item">
+                                  <div className="reward-content">
+                                      <h2 onClick={this.revealCustom}>Make a pledge without a reward</h2>
+                                    {this.customPledge()}
+                                  </div>
+                                </li>
+                                {this.sortedRewards().map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push} createAllRewardings={this.createAllRewardings}/>))}
+                            </ul>
+                            <button className="reward-button" onClick={this.newReward(this.props.project.id)}>Add Reward</button>
+                        </div>
+                        <div className="sidebar">
+                            <p>Kickstarter is not a store. It's a way to bring creative projects to life. Kickstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
+                        </div>
                     </div>
-                    <div className="reward-sidebar">
-                      <p>Kickstarter is not a store.
-It's a way to bring creative projects to life.
-Kickstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
-                    </div>
-                </div>
                 </div>
             );
         else {

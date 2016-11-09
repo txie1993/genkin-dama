@@ -20,7 +20,6 @@ class Api::RewardingsController < ApplicationController
   def create
     @rewarding = Rewarding.new(rewarding_params)
     @rewarding.user_id = current_user.id
-
     if @rewarding.save
       render :show
     else

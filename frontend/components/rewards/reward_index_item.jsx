@@ -10,7 +10,7 @@ const RewardIndexItem = ({reward, router, push, createBacking, createAllRewardin
               createAllRewardings(reward.id, reward.amount);
               push(`/projects/${reward.project_id}`);
             }}>
-            <div>
+            <div className="reward-content">
             <h2>${reward.amount} or more</h2>
             <h3>{reward.name}</h3>
             <p>{reward.description}</p>

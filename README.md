@@ -19,8 +19,8 @@ sufficient CSS styling:
 - [x] Replace "image url" in submission form with image upload
 - [x] Backing Projects
 - [x] Reward Levels
-- [ ] Style Backing Form
-- [ ] Style Reward Form
+- [x] Style Backing Form
+- [x] Style Reward Form
 - [ ] Tags on Projects
 - [ ] Style project index
 - [ ] Style Navbar
