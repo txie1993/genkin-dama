@@ -9,6 +9,10 @@ const backingLink = id => {
   };
 };
 
+const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 class ProjectShow extends React.Component {
     componentDidMount() {
         this.props.fetchProject(this.props.params.projectId);
@@ -40,15 +44,15 @@ class ProjectShow extends React.Component {
                             }}></div>
                             <div className="project-right">
                                 <div className="project-right-backers">
-                                    <h1>{project.num_backers}</h1>
+                                    <h1>{numberWithCommas(project.num_backers)}</h1>
                                     <p>backers</p>
                                 </div>
                                 <div className="project-right-goal">
-                                    <h1>${project.collected_funds}</h1>
-                                    <p>pledged of ${project.funding_goal}</p>
+                                    <h1>${numberWithCommas(project.collected_funds)}</h1>
+                                    <p>pledged of ${numberWithCommas(project.funding_goal)}</p>
                                 </div>
                                 <div className="project-right-time">
-                                    <h1>{project.remaining_days}</h1>
+                                    <h1>{numberWithCommas(project.remaining_days)}</h1>
                                     <p>days to go</p>
                                 </div>
                             </div>
