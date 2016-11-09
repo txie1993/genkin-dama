@@ -10,7 +10,8 @@
 #
 
 class Tagging < ActiveRecord::Base
-  validates :project_id, :tag_id, presence: true
+  validates :project_id, :tag_id, presence:true
+  validates :project_id, uniqueness: {scope: :tag_id, message: "Already tagged with this tag"}
 
   belongs_to :tag
   belongs_to :project
