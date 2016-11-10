@@ -79,6 +79,7 @@ class ProjectShow extends React.Component {
         e.preventDefault();
         this.newTagName = "";
         this.setState({addTagForm: true}, this.scroll);
+
     }
     hideForm(e) {
         e.preventDefault();
@@ -102,7 +103,7 @@ class ProjectShow extends React.Component {
 
 
     formLinks() {
-        if (this.props.currentUser.id === this.props.project.creator_id) {
+        if (this.props.currentUser && this.props.currentUser.id === this.props.project.creator_id) {
             return (
                 <div className="project-edit">
                     <button onClick={editLink(this.props.project.id)}>
@@ -118,7 +119,7 @@ class ProjectShow extends React.Component {
         }
     }
     tagButton() {
-      if (this.props.currentUser.id === this.props.project.creator_id)
+      if (this.props.currentUser && this.props.currentUser.id === this.props.project.creator_id)
       return (
         <div className="project-tag-form">
           <button id="add-tag" onClick={this.showForm}>Add Tag</button>
@@ -134,6 +135,7 @@ class ProjectShow extends React.Component {
                 <div className="fade-in">
                     <form className="tag-form" onSubmit={this.handleTag}>
                         <select onChange={this.chooseTag}>
+                          <option selected="selected" disabled>Tags</option>
                             {this.props.tags.map(tag => <option key={`k${tag.id}`} value={tag.id}>{tag.name}</option>)}
                         </select>
                         <input type="submit" value="Add"/>

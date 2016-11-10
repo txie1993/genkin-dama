@@ -1,22 +1,69 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 body {
     font-family: 'Slabo 27px', sans-serif;
     margin: 0px;
+}
+
+.project-index {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100vh;
+}
+
+.slideshow-banner {
+    margin: 0 auto;
+    width: 100%;
+    color: #333;
+    min-height: 0;
+    min-width: 0;
+}
+
+.slideshow-banner img {
+    height: 65vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slideshow-item {
+    position: relative;
+}
+
+.slide-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    margin-top: 7%;
+    top: 30px;
+    width: 100%;
+    color:white;
+    text-shadow: 2px 0px 26px rgba(150, 150, 150, 1),
+    2px 0px 26px rgba(150, 150, 150, 1),
+    2px 0px 26px rgba(150, 150, 150, 1),
+    2px 0px 26px rgba(150, 150, 150, 1),
+    2px 0px 26px rgba(150, 150, 150, 1);
+}
+.slide-text p{
+    width: 50%;
+}
+
+.slick-list {
+    padding: 0px;
+}
+
+.slick-arrow {
+    z-index: 50;
+    position: absolute;
+}
+
+.slick-prev {
+    left: 0px;
+}
+
+.slick-next {
+    right: 0px;
 }
 
 .dropdown {
@@ -367,14 +414,15 @@ button:hover, input[type="submit"]:hover {
     margin: 0 auto;
     flex-flow: row wrap;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
 }
 
 .project-left-2 {
     display: flex;
     justify-content: flex-start;
-    width: 70%;
-    padding: 10px;
+    width: 65%;
+    padding: 20px;
     margin: 0 auto;
     flex-flow: row wrap;
     background-repeat: no-repeat;
@@ -442,16 +490,14 @@ button:hover, input[type="submit"]:hover {
     background-color: #25CB68;
 }
 
-.project-edit{
-  display: flex;
-  flex-direction: column;
+.project-edit {
+    display: flex;
+    flex-direction: column;
 }
 
-.project-edit button{
-  width: 100%;
+.project-edit button {
+    width: 100%;
 }
-
-
 
 .project-tags {
     display: flex;
@@ -459,14 +505,14 @@ button:hover, input[type="submit"]:hover {
 }
 
 .project-tags ul {
-  display:flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
     padding: 0px;
     flex-wrap: wrap;
 }
 
 .project-tags li {
-  justify-content: space-around;
+    justify-content: space-around;
     list-style: none;
     background: #e8e8e8;
     border-radius: 5px;
@@ -568,63 +614,77 @@ button:hover, input[type="submit"]:hover {
     background: white;
 }
 
-#delete-button{
-  background: red;
+#delete-button {
+    background: red;
 }
 
-#delete-button:hover{
-  background: pink;
+#delete-button:hover {
+    background: pink;
 }
 
-.project-tag-form{
-  display: flex;
-  flex-direction: column;
-  width: 75%;
+.project-tag-form {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
 }
 
-.project-tag-form button, input[type="submit"]{
-  font-family: Slabo;
-  width: 150px;
-  font-size: 0.8rem;
-  padding: 5px 10px;
-  border: 1px;
-  font-weight: normal;
+.project-tag-form button {
+    font-family: Slabo;
+    width: 150px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border: 1px;
+    font-weight: normal;
 }
 
-.project-tag-form input[type="text"]{
-  width: 130px;
-  font-size: 0.8rem;
-  padding: 5px 10px;
-  font-weight: normal;
+.project-tag-form select {
+    font-family: Slabo;
+    width: 150px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
 }
 
-#add-tag {
-
+.project-tag-form input[type="submit"] {
+    font-family: Slabo;
+    width: 150px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border: 1px;
+    font-weight: normal;
 }
+
+.project-tag-form input[type="text"] {
+    width: 130px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    font-weight: normal;
+}
+
+#add-tag {}
 
 .tag-form {
-  display: flex;
-  margin: 10px;
-  justify-content: space-around;
-  align-content: space-around;
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+    align-content: space-around;
 }
-
 
 .tag-form-new {
-  margin: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-content: space-around;
-  height: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 20px;
 }
+
 .tag-form-new h3 {
-  display: flex;
-  justify-content: center;
-  margin: 0px;
-  width: 137px;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    width: 150px;
 }
 
 .fa-window-close {
-  color:red;
-  cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
