@@ -26,8 +26,7 @@ class ProjectShow extends React.Component {
         super(props);
         this.state = {
             tagForm: false,
-            addTagForm: false,
-            dummy: ""
+            addTagForm: false
         };
         this.tagSelect = "";
         this.newTagName = "";
@@ -36,6 +35,8 @@ class ProjectShow extends React.Component {
         this.handleNewTag = this.handleNewTag.bind(this);
         this.showForm = this.showForm.bind(this);
         this.showNewForm = this.showNewForm.bind(this);
+        this.hideForm = this.hideForm.bind(this);
+        this.hideNewForm = this.hideNewForm.bind(this);
         this.setTagName = this.setTagName.bind(this);
         this.chooseTag = this.chooseTag.bind(this);
     }
@@ -45,67 +46,99 @@ class ProjectShow extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.value){
+        if (nextProps.value !== this.props.value) {
             this.props.fetchProject(nextProps.params.projectId);
-        this.props.fetchTags();
-      }
+            this.props.fetchTags();
+        }
     }
+
 
     handleTag(e) {
         e.preventDefault();
         this.props.createTagging({project_id: this.props.project.id, tag_id: this.tagSelect});
-        this.setState({dummy: "a"});
     }
+
     handleNewTag(e) {
         e.preventDefault();
         this.props.createTag({name: this.newTagName});
 
     }
 
-    showForm() {
-      this.tagSelect = "";
-      this.newTagName = "";
-        this.setState({tagForm: true});
+    scroll() {
+      $("html, body").animate({ scrollTop: $(document).height() }, "slow");
     }
-    showNewForm() {
+
+    showForm(e) {
+        e.preventDefault();
+        this.tagSelect = "";
         this.newTagName = "";
-        this.setState({addTagForm: true});
+        this.setState({tagForm: true}, this.scroll);
+    }
+
+    showNewForm(e) {
+        e.preventDefault();
+        this.newTagName = "";
+        this.setState({addTagForm: true}, this.scroll);
+    }
+    hideForm(e) {
+        e.preventDefault();
+        this.tagSelect = "";
+        this.newTagName = "";
+        this.setState({tagForm: false});
+    }
+
+    hideNewForm(e) {
+        e.preventDefault();
+        this.newTagName = "";
+        this.setState({addTagForm: false});
     }
 
     setTagName(e) {
-      this.newTagName = e.target.value;
+        this.newTagName = e.target.value;
     }
     chooseTag(e) {
-      this.tagSelect = e.target.value;
+        this.tagSelect = e.target.value;
     }
 
+
     formLinks() {
-      if (this.props.currentUser.id === this.props.project.creator_id){
-        return (
-          <div>
-            <button onClick={editLink(this.props.project.id)}>Edit</button>&nbsp;
-            <button onClick={() => this.props.deleteProject(this.props.project.id)}>Delete</button>
-          </div>
-        );
-      }
-      else {
-        return (
-          <button onClick={backingLink(this.props.project.id)}>Back This Project</button>
-        );
-      }
+        if (this.props.currentUser.id === this.props.project.creator_id) {
+            return (
+                <div className="project-edit">
+                    <button onClick={editLink(this.props.project.id)}>
+                        <i className="fa fa-pencil" aria-hidden="true"></i> Edit</button>&nbsp;
+                    <button  id="delete-button" onClick={() => this.props.deleteProject(this.props.project.id)}>
+                        <i className="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                </div>
+            );
+        } else {
+            return (
+                <button onClick={backingLink(this.props.project.id)}>Back This Project</button>
+            );
+        }
+    }
+    tagButton() {
+      if (this.props.currentUser.id === this.props.project.creator_id)
+      return (
+        <div className="project-tag-form">
+          <button id="add-tag" onClick={this.showForm}>Add Tag</button>
+          {this.tagForm()}
+          {this.newTagForm()}
+        </div>
+      );
     }
 
     tagForm() {
         if (this.state.tagForm)
             return (
                 <div className="fade-in">
-                    <form onSubmit={this.handleTag}>
-                        <h3>Pledge Amount</h3>
+                    <form className="tag-form" onSubmit={this.handleTag}>
                         <select onChange={this.chooseTag}>
-                            {this.props.tags.map(tag => <option value={tag.id}>{tag.name}</option>)}
+                            {this.props.tags.map(tag => <option key={`k${tag.id}`} value={tag.id}>{tag.name}</option>)}
                         </select>
-                        <input type="submit" value="Add Tag"/>
+                        <input type="submit" value="Add"/>
                         <button onClick={this.showNewForm}>New Tag</button>
+                        <i onClick={this.hideForm} className="fa fa-window-close fa-fw"></i>
                     </form>
                 </div>
             );
@@ -115,10 +148,11 @@ class ProjectShow extends React.Component {
         if (this.state.addTagForm)
             return (
                 <div className="fade-in">
-                    <form onSubmit={this.handleNewTag}>
+                    <form className="tag-form-new" onSubmit={this.handleNewTag}>
                         <h3>Tag Name</h3>
                         <input type="text" onChange={this.setTagName}></input>
                         <input type="submit" value="Create Tag"/>
+                        <i onClick={this.hideNewForm} className="fa fa-window-close fa-fw"></i>
                     </form>
                 </div>
             );
@@ -161,16 +195,17 @@ class ProjectShow extends React.Component {
                             <div className="project-left-2">
                                 <p>{project.description}</p>
                                 <div className="project-tags">
-                                  <ul>
-                                    {project.tags.map(tag => <li>{tag.name}</li>)}
-                                  </ul>
+                                    <ul>
+                                        {project.tags.map(tag => <li key={`t${tag.id}`}>
+                                            <i className="fa fa-tag fa-fw" aria-hidden="true"></i>{tag.name}</li>)}
+                                    </ul>
                                 </div>
-                                <button onClick={this.showForm}>Add Tag</button>
-                                {this.tagForm()}
-                                {this.newTagForm()}
+
+                                {this.tagButton()}
+
                             </div>
                             <div className="project-right-2">
-                              {this.formLinks()}
+                                {this.formLinks()}
                             </div>
                         </div>
                     </div>

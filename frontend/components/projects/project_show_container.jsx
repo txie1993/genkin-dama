@@ -7,7 +7,8 @@ import { createTagging, deleteTagging } from '../../actions/tagging_actions';
 const mapStateToProps = (state, ownProps) => ({
   project: state.projects[ownProps.params.projectId],
   currentUser: state.session.currentUser,
-  tags: Object.keys(state.tags).map(id => state.tags[id])
+  tags: Object.keys(state.tags).map(id => state.tags[id]),
+  taggings: Object.keys(state.taggings).map(id => state.taggings[id])
 });
 
 const mapDispatchToProps = dispatch => ({
