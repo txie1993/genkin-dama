@@ -11,7 +11,6 @@ import ProjectIndexContainer from './projects/project_index_container';
 import RewardIndexContainer from './rewards/reward_index_container';
 import RewardFormContainer from './rewards/reward_form_container';
 import ProjectFormContainer from './projects/project_form_container';
-import BackingFormContainer from './backings/backing_form_container';
 import ProjectShowContainer from './projects/project_show_container';
 
 const Root = ({store}) => {
@@ -40,7 +39,6 @@ const Root = ({store}) => {
                     <Route path="/projects/:projectId/edit" component={ProjectFormContainer} />
                     <Route path="/projects/:projectId/rewards" component={RewardIndexContainer}/>
                     <Route path="/projects/:projectId/rewards/new" component={RewardFormContainer}/>
-                    <Route path="/projects/:projectId/backing" component={BackingFormContainer}/>
                     <Route path="/newproject" component={ProjectFormContainer}/>
                     <Route path="/login" component={SessionFormContainer}/>
                     <Route path="/login" component={SessionFormContainer}/>
