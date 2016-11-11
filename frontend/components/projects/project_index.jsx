@@ -18,7 +18,7 @@ class ProjectIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchProjects();
-        setTimeout(this.progressBar, 1000);
+        setTimeout(this.progressBar, 200);
     }
 
     progressBar() {

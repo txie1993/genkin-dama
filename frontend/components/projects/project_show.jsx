@@ -52,7 +52,6 @@ class ProjectShow extends React.Component {
         }
     }
 
-
     handleTag(e) {
         e.preventDefault();
         this.props.createTagging({project_id: this.props.project.id, tag_id: this.tagSelect});
@@ -65,20 +64,26 @@ class ProjectShow extends React.Component {
     }
 
     scroll() {
-      $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        $("html, body").animate({
+            scrollTop: $(document).height()
+        }, "slow");
     }
 
     showForm(e) {
         e.preventDefault();
         this.tagSelect = "";
         this.newTagName = "";
-        this.setState({tagForm: true}, this.scroll);
+        this.setState({
+            tagForm: true
+        }, this.scroll);
     }
 
     showNewForm(e) {
         e.preventDefault();
         this.newTagName = "";
-        this.setState({addTagForm: true}, this.scroll);
+        this.setState({
+            addTagForm: true
+        }, this.scroll);
 
     }
     hideForm(e) {
@@ -101,33 +106,39 @@ class ProjectShow extends React.Component {
         this.tagSelect = e.target.value;
     }
 
-
     formLinks() {
         if (this.props.currentUser && this.props.currentUser.id === this.props.project.creator_id) {
             return (
                 <div className="project-edit">
                     <button onClick={editLink(this.props.project.id)}>
-                        <i className="fa fa-pencil" aria-hidden="true"></i> Edit</button>&nbsp;
-                    <button  id="delete-button" onClick={() => this.props.deleteProject(this.props.project.id)}>
-                        <i className="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                        <i className="fa fa-pencil" aria-hidden="true"></i>
+                        Edit</button>&nbsp;
+                    <button id="delete-button" onClick={() => this.props.deleteProject(this.props.project.id)}>
+                        <i className="fa fa-trash" aria-hidden="true"></i>
+                        Delete</button>
                 </div>
             );
         } else {
+            if (this.props.project.remaining_days > 0 || this.props.project.remaining_days === "∞")
+                return (
+                    <button onClick={backingLink(this.props.project.id)}>Back This Project</button>
+                );
+            else
+                return (
+                    <h1>This project has ended.</h1>
+                );
+            }
+        }
+    tagButton() {
+        if (this.props.currentUser && this.props.currentUser.id === this.props.project.creator_id)
             return (
-                <button onClick={backingLink(this.props.project.id)}>Back This Project</button>
+                <div className="project-tag-form">
+                    <button id="add-tag" onClick={this.showForm}>Add Tag</button>
+                    {this.tagForm()}
+                    {this.newTagForm()}
+                </div>
             );
         }
-    }
-    tagButton() {
-      if (this.props.currentUser && this.props.currentUser.id === this.props.project.creator_id)
-      return (
-        <div className="project-tag-form">
-          <button id="add-tag" onClick={this.showForm}>Add Tag</button>
-          {this.tagForm()}
-          {this.newTagForm()}
-        </div>
-      );
-    }
 
     tagForm() {
         if (this.state.tagForm)
@@ -135,7 +146,7 @@ class ProjectShow extends React.Component {
                 <div className="fade-in">
                     <form className="tag-form" onSubmit={this.handleTag}>
                         <select onChange={this.chooseTag}>
-                          <option selected="selected" disabled>Tags</option>
+                            <option selected="selected" disabled>Tags</option>
                             {this.props.tags.map(tag => <option key={`k${tag.id}`} value={tag.id}>{tag.name}</option>)}
                         </select>
                         <input type="submit" value="Add"/>
