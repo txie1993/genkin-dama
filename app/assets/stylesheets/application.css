@@ -31,9 +31,19 @@ body {
     font-size: 0.8rem;
     margin: 5px;
 }
+.item-desc h2{
+    cursor: pointer;
+}
+.item-footer {
+  font-size: 0.8rem;
+  margin: 5px;
+}
+.item-footer h5{
+  text-align: center;
+  font-size: 1rem;
+}
 
 .project-index {
-    height: 100vh;
 }
 
 .nonfeature-grid {
@@ -41,7 +51,6 @@ body {
     justify-content: space-between;
     width: 100%;
     position: absolute;
-    height: 100%;
     overflow: scroll;
     overflow-y: hidden;
 }

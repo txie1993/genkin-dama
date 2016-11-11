@@ -14,7 +14,7 @@ const projectLink = id => {
 const ProjectIndexItem = ({project, router}) => (
     <div className="item-container">
         <div className="item-pic">
-            <img src={project.image_url}></img>
+            <img onClick={projectLink(project.id)} src={project.image_url}></img>
         </div>
         <div className="item-desc">
             <h2 onClick={projectLink(project.id)}>{project.title}</h2>
@@ -23,7 +23,11 @@ const ProjectIndexItem = ({project, router}) => (
         </div>
         <div className="item-footer">
             <div className="meter nostripes">
-                <span style={{width: "25%"}}></span>
+                <span style={{width: `${project.percent_complete}%`}}></span>
+            </div>
+            <div>
+              <h5>{project.percent_complete}% completed, {project.remaining_days} days left</h5>
+
             </div>
         </div>
     </div>

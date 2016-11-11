@@ -29,6 +29,10 @@ class Project < ActiveRecord::Base
     backings.sum(:amount)
   end
 
+  def percent_complete
+    (100* self.collected_funds/self.funding_goal)
+  end
+
   has_many :backers,
   through: :backings,
   source: :backer

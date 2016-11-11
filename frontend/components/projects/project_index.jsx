@@ -4,6 +4,8 @@ import ProjectIndexItem from './project_index_item';
 import ProjectForm from './project_form';
 import {Link, hashHistory} from 'react-router';
 
+
+
 const projectLink = id => {
     return (e) => {
         e.preventDefault();
@@ -16,6 +18,19 @@ class ProjectIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchProjects();
+        setTimeout(this.progressBar, 1000);
+    }
+
+    progressBar() {
+      console.log("run");
+      $(".meter > span").each(function() {
+        $(this)
+          .data("origWidth", $(this).width())
+          .width(0)
+          .animate({
+            width: $(this).data("origWidth")
+          }, 1200);
+      });
     }
 
     render() {
@@ -54,22 +69,10 @@ class ProjectIndex extends React.Component {
                         ))}
                         <div className="slideshow-item">
                             <div className="slide-text">
-                                <h1>SAMPLE TEXT</h1>
-                                <p>sup kdsajfosdjfldksajfklsadjflk;sadjflksadjflksdajflsk;djf</p>
+                                <h1>Start Your Own Project Today</h1>
+                                <p>Getting started is easy. Simply create a project and start campaigning!</p>
                             </div>
                             <img src='http://i.imgur.com/DfaOJRB.jpg'/></div>
-                        <div className="slideshow-item">
-                            <div className="slide-text">
-                                <h1>SAMPLE WEW</h1>
-                            </div><img src='http://i.imgur.com/Utt3tVN.jpg'/></div>
-                        <div className="slideshow-item">
-                            <div className="slide-text">
-                                <h1>SAMPLE TEXT THE THRD</h1>
-                            </div><img src='http://i.imgur.com/iUFImpS.jpg'/></div>
-                        <div className="slideshow-item">
-                            <div className="slide-text">
-                                <h1>SAMPLE KJLKFJ</h1>
-                            </div><img src='http://i.imgur.com/fsltUVA.jpg'/></div>
 
                     </Slider>
                     <div>
