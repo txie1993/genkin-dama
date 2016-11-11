@@ -44,6 +44,7 @@ const ProjectsMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case DELETE_PROJECT:
       deleteProject(action.id, removeProjectSuccess);
+      hashHistory.push("/");
       return next(action);
     default:
       return next(action);

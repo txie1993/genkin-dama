@@ -11,7 +11,9 @@ class RewardIndex extends React.Component {
         this.newReward = this.newReward.bind(this);
         this.revealCustom = this.revealCustom.bind(this);
         this.customPledge = this.customPledge.bind(this);
-        this.state = {revealed: false};
+        this.state = {
+            revealed: false
+        };
     }
     componentDidMount() {
         this.props.fetchRewards();
@@ -30,6 +32,13 @@ class RewardIndex extends React.Component {
         };
     }
 
+    addReward() {
+        if (this.props.currentUser && this.props.currentUser.id === this.props.project.creator_id)
+            return (
+                <button className="reward-button" onClick={this.newReward(this.props.project.id)}>Add Reward</button>
+            );
+        }
+
     newReward(id) {
         return (e) => {
             e.preventDefault();
@@ -43,11 +52,14 @@ class RewardIndex extends React.Component {
     }
 
     revealCustom() {
-        this.state.revealed ? this.setState({["revealed"]: false}) : this.setState({["revealed"]: true});
+        this.state.revealed
+            ? this.setState({["revealed"]: false})
+            : this.setState({["revealed"]: true});
     }
 
     customPledge() {
-        if (this.state.revealed) return (
+        if (this.state.revealed)
+            return (
                 <div className="fade-in" id="custom-pledge">
                     <form onSubmit={this.handleSubmit}>
                         <h3>Pledge Amount</h3>
@@ -55,8 +67,8 @@ class RewardIndex extends React.Component {
                         <input type="submit" id="continue-button" value="Continue"/>
                     </form>
                 </div>
-        );
-    }
+            );
+        }
 
     render() {
         if (this.props.project)
@@ -67,17 +79,17 @@ class RewardIndex extends React.Component {
                             <h1>Support this project</h1>
                             <ul className="rewards-list">
                                 <li className="reward-item grow">
-                                  <div className="reward-content">
-                                      <h2 onClick={this.revealCustom}>Make a pledge without a reward</h2>
-                                    {this.customPledge()}
-                                  </div>
+                                    <div className="reward-content">
+                                        <h2 onClick={this.revealCustom}>Make a pledge without a reward</h2>
+                                        {this.customPledge()}
+                                    </div>
                                 </li>
                                 {this.sortedRewards().map(reward => (<RewardIndexItem key={reward.id} reward={reward} createBacking={this.props.createBacking} push={this.props.router.push} createRewarding={this.props.createRewarding}/>))}
                             </ul>
-                            <button className="reward-button" onClick={this.newReward(this.props.project.id)}>Add Reward</button>
+                            {this.addReward()}
                         </div>
                         <div className="sidebar">
-                            <p>Kickstarter is not a store. It's a way to bring creative projects to life. Kickstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
+                            <p>Genkin Dama is not a store. It's a way to bring creative projects to life. Genkin Dama does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
                         </div>
                     </div>
                 </div>
