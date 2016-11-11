@@ -1,37 +1,72 @@
 import React from 'react';
-import { Link } from 'react-router';
+import {Link, hashHistory} from 'react-router';
 
-const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login" activeClassName="current">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
-  </nav>
-);
+const rootLink = () => {
+    hashHistory.replace("/");
+};
+const newLink = () => {
+    hashHistory.replace("/new");
+};
+const loginLink = () => {
+    hashHistory.replace("/login");
+};
+const signupLink = () => {
+    hashHistory.replace("/signup");
+};
 
-const personalGreeting = (currentUser, logout) => (
-	<hgroup className="header-group">
-    <Link to="/newproject" className="new-project-link">Create a Project</Link>
+class Greeting extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            popup: false
+        };
+    }
 
-    <img src="http://i.imgur.com/uxl2emR.png"></img>
+    dropdown() {
+      if (this.state.popup)
+        return (
+            <div className="dropdown">
+            </div>
+        );
+    }
 
-      <div className="dropdown">
-        <h2 className="header-name">Hi, {currentUser.username}!</h2>
-      <div className="dropdown-content">
-        <button className="header-button" onClick={logout}>Log Out</button>
-        <p>My Projects!</p>
-        <ul>
-          {currentUser.projects.map(project => <li key={project.id}>{project.title}</li>)}
-        </ul>
-      </div>
-    </div>
+    sessionLinks() {
+      return (
+        <hgroup className="header-group-login">
+          <img onClick={rootLink} className="logo" src="http://i.imgur.com/uxl2emR.png"></img>
+          <div className="login-buttons">
+            <div onClick={loginLink} className="title-button">
+                <h2>Log In</h2>
+            </div>
+            <div onClick={signupLink} className="title-button">
+                <h2>Sign Up</h2>
+            </div>
+            </div>
+          </hgroup>
+      );
+    }
 
+    personalGreeting() {
+        return (
+            <hgroup className="header-group">
+                <div onClick={newLink} className="title-button">
+                    <h2>Start a project</h2>
+                </div>
 
-	</hgroup>
-);
+                <img onClick={rootLink} className="logo" src="http://i.imgur.com/uxl2emR.png"></img>
 
-const Greeting = ({ currentUser, logout }) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
-);
+                <div onClick={this.props.logout} className="title-button">
+                    <h2>Hi, {this.props.currentUser.username}!</h2>
+                </div>
+            </hgroup>
+        );
+    }
+
+    render() {
+        return ((this.props.currentUser
+            ? this.personalGreeting()
+            : this.sessionLinks()));
+    }
+}
 
 export default Greeting;

@@ -39,7 +39,7 @@ const Root = ({store}) => {
                     <Route path="/projects/:projectId/edit" component={ProjectFormContainer} />
                     <Route path="/projects/:projectId/rewards" component={RewardIndexContainer}/>
                     <Route path="/projects/:projectId/rewards/new" component={RewardFormContainer}/>
-                    <Route path="/newproject" component={ProjectFormContainer}/>
+                    <Route path="/new" component={ProjectFormContainer}/>
                     <Route path="/login" component={SessionFormContainer}/>
                     <Route path="/login" component={SessionFormContainer}/>
                     <Route path="/signup" component={SessionFormContainer}/>
