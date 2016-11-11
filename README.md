@@ -20,6 +20,7 @@ End date is entered by an HTML5 date input, though it currently does not work on
 ![Project Index Carousel](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.04.20%20PM.png)
 ![Project Index Items](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.04.50%20PM.png?raw=true)
 ![New Project Form](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.06.44%20PM.png?raw=true)
+![Project Show](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.35.09%20PM.png?raw=true)
 
 ### Backing a Project
 
@@ -28,6 +29,7 @@ Users can back projects if they are not the creator of that project. On the show
 By clicking a reward level, a reward and backing are added to the database. Also, by selecting a reward, the user automatically qualifies for all lower-level rewards for that project.
 
 ![Back Project](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.07.38%20PM.png?raw=true)
+![Reward Creation](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.06.44%20PM.png?raw=true)
 
 ### Adding Tags
 
