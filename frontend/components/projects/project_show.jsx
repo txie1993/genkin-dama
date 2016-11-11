@@ -113,6 +113,9 @@ class ProjectShow extends React.Component {
                     <button onClick={editLink(this.props.project.id)}>
                         <i className="fa fa-pencil" aria-hidden="true"></i>
                         Edit</button>&nbsp;
+                      <br/>
+                    <button onClick={backingLink(this.props.project.id)}>View Rewards</button>
+                    <br/>
                     <button id="delete-button" onClick={() => this.props.deleteProject(this.props.project.id)}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                         Delete</button>
