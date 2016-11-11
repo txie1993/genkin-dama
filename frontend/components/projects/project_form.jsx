@@ -9,7 +9,7 @@ class ProjectForm extends React.Component {
         // use project in store if updating; start with blank project if new
         this.state = this.props.project || {
             title: "",
-            image_url: "",
+            image_url: "http://www.skelbiunemokamai.lt/sites/default/files/skelbimai/summer-sail-327104.jpg",
             description: "",
             funding_goal: "",
             creator_id: "",
@@ -18,7 +18,7 @@ class ProjectForm extends React.Component {
     }
 
     uploadStatusMessage() {
-        if (this.state.image_url === "")
+        if (this.state.image_url === "http://www.skelbiunemokamai.lt/sites/default/files/skelbimai/summer-sail-327104.jpg")
             return "Click Here to Select File";
         else if (this.state.image_url === "loading")
             return "Uploading...";
@@ -63,7 +63,7 @@ class ProjectForm extends React.Component {
     componentWillReceiveProps(newProps) {
         this.setState(newProps.project || {
             title: "",
-            image_url: "",
+            image_url: "http://www.skelbiunemokamai.lt/sites/default/files/skelbimai/summer-sail-327104.jpg",
             description: "",
             funding_goal: "",
             creator_id: "",
@@ -81,7 +81,7 @@ class ProjectForm extends React.Component {
         e.preventDefault();
         if (this.props.formType === 'new') {
             this.props.createProject(this.state);
-            this.props.router.push("/");
+            this.props.router.push(`/projects/${this.props.project.id}`);
         } else {
             this.props.updateProject(this.state);
             this.props.router.push(`/projects/${this.props.project.id}`);

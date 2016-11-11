@@ -5,6 +5,10 @@ import ProjectForm from './project_form';
 import {Link, hashHistory} from 'react-router';
 
 
+const newLink = () => {
+    hashHistory.replace("/new");
+};
+
 
 const projectLink = id => {
     return (e) => {
@@ -74,7 +78,7 @@ class ProjectIndex extends React.Component {
                         ))}
                         <div className="slideshow-item">
                             <div className="slide-text">
-                                <h1>Start Your Own Project Today</h1>
+                                <h1 onClick={newLink}>Start Your Own Project Today</h1>
                                 <p>Getting started is easy. Simply create a project and start campaigning!</p>
                             </div>
                             <img src='http://i.imgur.com/DfaOJRB.jpg'/></div>

@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
   class_name: :Rewarding,
   dependent: :destroy
 
+  has_many :backed_projects,
+  through: :backings,
+  source: :project
+
+
   has_many :rewards,
   through: :rewardings,
   source: :reward

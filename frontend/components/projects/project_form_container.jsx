@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, {location}) => {
   const currUrl = location.pathname.slice(1);
-  const formType = (currUrl === 'newproject') ? "new" : "update";
+  const formType = (currUrl === 'new') ? "new" : "update";
 
   return {
   fetchProject: id => dispatch(fetchProject(id)),
