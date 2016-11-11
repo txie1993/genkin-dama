@@ -21,10 +21,10 @@ sufficient CSS styling:
 - [x] Reward Levels
 - [x] Style Backing Form
 - [x] Style Reward Form
-- [ ] Tags on Projects
-- [ ] Style project index
+- [x] Tags on Projects
+- [x] Style project index
 - [ ] Style Navbar
-- [ ] **Bonus** Animate Progress Bar
+- [x] **Bonus** Animate Progress Bar
 - [ ] **Bonus** Search
 - [ ] **Bonus** Recommended for You
 - [ ] **Bonus** Caviar-esque login/signup popups (no HTTP request until registered)

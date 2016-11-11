@@ -14,15 +14,20 @@ const projectLink = id => {
     };
 };
 
+const roundDown = num => {
+    return num > 100 ? 100 : num;
+};
+
+
 class ProjectIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchProjects();
-        setTimeout(this.progressBar, 200);
+        setTimeout(this.progressBar, 50);
     }
 
+
     progressBar() {
-      console.log("run");
       $(".meter > span").each(function() {
         $(this)
           .data("origWidth", $(this).width())
@@ -81,7 +86,7 @@ class ProjectIndex extends React.Component {
                     </div>
                 </div>
                 <div className='nonfeature-grid'>
-                    {nonfeatures.map(project => (<ProjectIndexItem key={`grid${project.id}`} project={project}/>))}
+                    {nonfeatures.map(project => (<ProjectIndexItem key={`grid${project.id}`} project={project} displayPercentage={roundDown(project.percent_complete)}/>))}
                 </div>
 
             </div>
