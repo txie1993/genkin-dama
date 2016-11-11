@@ -4,28 +4,33 @@
 
 [genkindama]: http://genkindama.herokuapp.com/
 
-Genkin Dama is a full-stack web application inspired by Kickstarter, where users can start campaigns for their projects and let other people fund their projects through rewards and pledges. ClickStarter is built on Ruby and Rails on the back-end, a PostgreSQL database, and React.js with a Redux architectural framework on the front-end.
+Genkin Dama is a full-stack web application inspired by Kickstarter, where users can start campaigns for their projects and let other people fund their projects through rewards and pledges. Genkin Dama is built on Ruby and Rails on the back-end, a PostgreSQL database, and React.js with a Redux architectural framework on the front-end.
+
+The name Genkin Dama is inspired by the iconic technique "Spirit Bomb," or "Genki Dama" from Dragon Ball Z. The technique involves gathering power from many contributors, much like a Kickstarter campaign. "Genkin" in Japanese means "cash."
 
 ## Features & Implementation
 
-### Create / Finalize Project
+### Starting a Project
 
-Users can create campaigns for their projects with just three inputs: title, location, and category. Once the project is initialized successfully, the user is further prompted to enter the detail that his/her project has, some of which are funding end date, description, short blurb, and goal amount. Project cover image is optional. All images are uploaded onto AWS S3. A default image is given if the user chooses to not upload an image for the project. In addition, a project is only be funded through its rewards. User can attach as many rewards onto the project as possible. Each reward requires four inputs to be created: title, description, delivery date, and minimum cost. If user does not submit and finalize his/her project, the project would not appear on the home page nor the search result.
+Like Kickstarter, the user needs to enter a title, short description, image, funding goal, and end date. The title and description are strings, the image is stored as a URL in the database, the funding goal is an integer, and the end date is a date object.
 
-![Initialize Campaign](https://github.com/kikoo201/ClickStarter/blob/master/docs/screencaps/create_project1.jpg "Initialize Campaign")
-![Create Campaign1](https://github.com/kikoo201/ClickStarter/blob/master/docs/screencaps/project_form1.jpg "Create Campaign1")
-![Create Campaign2](https://github.com/kikoo201/ClickStarter/blob/master/docs/screencaps/project_form2.jpg "Create Campaign2")
+Image upload is handled by the Imgur API through an HTML5 file input.
+End date is entered by an HTML5 date input, though it currently does not work on certain browsers such as Firefox.
 
-### Pledge Project on the project show page
+![Project Index Carousel](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.04.20%20PM.png)
+![Project Index Items](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.04.50%20PM.png?raw=true)
+![New Project Form](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.06.44%20PM.png?raw=true)
 
-Users can back projects by pledging through rewards. This can be done by clicking the pledge button in the corresponding reward box on the project page after a value is entered in the box. In order to make a legal pledge, the user has to be logged in and the pledge amount has to be equal or greater than the minimum cost of the reward.
+### Backing a Project
 
-The project page displays the author name, title, description, location, category, rewards, goal amount, and short blurb of the project. In addition, it also displays the fund status of the project such as the number of unique backers, total pledge amount, and days remaining for funding.
+Users can back projects if they are not the creator of that project. On the show page for each project that was not created by the currently logged in user, there is a "Back this Project" button that takes the user to a page where they can view reward levels. There is also an option to donate an arbitrary amount without receiving a reward. By clicking the first option, the user can fill out a small form to enter the amount they wish to donate.
 
-![Show Project](https://github.com/kikoo201/ClickStarter/blob/master/docs/screencaps/project_show.jpg "Show Project")
+By clicking a reward level, a reward and backing are added to the database. Also, by selecting a reward, the user automatically qualifies for all lower-level rewards for that project.
 
-### Search
+![Back Project](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.07.38%20PM.png?raw=true)
 
-Users can search project by author name, location, category, location, or the combination of these. A carousel will be shown if such projects are found with those parameters.
+### Adding Tags
 
-![Search Project](https://github.com/kikoo201/ClickStarter/blob/master/docs/screencaps/project_search.jpg "Search Project")
+The creator of a project can add tags to their project to categorize them. Tags are added by a hidden form that can be opened and closed by the UI.
+
+![Tag Project](https://github.com/txie1993/genkin-dama/blob/master/docs/screencaps/Screen%20Shot%202016-11-11%20at%203.06.22%20PM.png?raw=true")
