@@ -13,6 +13,8 @@ const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
     <Link to="/newproject" className="new-project-link">Create a Project</Link>
 
+    <img src="http://i.imgur.com/uxl2emR.png"></img>
+
       <div className="dropdown">
         <h2 className="header-name">Hi, {currentUser.username}!</h2>
       <div className="dropdown-content">
@@ -23,6 +25,8 @@ const personalGreeting = (currentUser, logout) => (
         </ul>
       </div>
     </div>
+
+
 	</hgroup>
 );
 
