@@ -29,11 +29,18 @@ class Greeting extends React.Component {
         };
 
         this.clickedName=this.clickedName.bind(this);
+        this.logoutUser=this.logoutUser.bind(this);
     }
 
     clickedName(){
       if(this.state.popup) this.setState({"popup":false});
       else this.setState({"popup": true});
+    }
+
+    logoutUser() {
+      console.log("hi");
+      this.setState({"popup":false});
+      this.props.logout();
     }
 
     dropdown() {
@@ -56,7 +63,7 @@ class Greeting extends React.Component {
                   </ul>
                 </div>
                 <div className="dropdown-logout">
-                  <h1 onClick={this.props.logout}>Logout</h1>
+                  <h1 onClick={this.logoutUser}>Logout</h1>
                 </div>
               </div>
             </div>
