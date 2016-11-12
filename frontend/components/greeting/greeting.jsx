@@ -38,7 +38,6 @@ class Greeting extends React.Component {
     }
 
     logoutUser() {
-      console.log("hi");
       this.setState({"popup":false});
       this.props.logout();
     }
