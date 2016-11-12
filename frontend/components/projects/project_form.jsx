@@ -81,7 +81,7 @@ class ProjectForm extends React.Component {
         e.preventDefault();
         if (this.props.formType === 'new') {
             this.props.createProject(this.state);
-            this.props.router.push(`/projects/${this.props.project.id}`);
+            this.props.router.push(`/`);
         } else {
             this.props.updateProject(this.state);
             this.props.router.push(`/projects/${this.props.project.id}`);
