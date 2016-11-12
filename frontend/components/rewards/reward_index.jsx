@@ -16,6 +16,8 @@ class RewardIndex extends React.Component {
         };
     }
     componentDidMount() {
+        if (!this.props.currentUser)
+            hashHistory.replace("/login");
         this.props.fetchRewards();
         this.props.fetchProjects();
     }

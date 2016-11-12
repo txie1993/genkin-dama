@@ -2,7 +2,7 @@
 
 [Genkin Dama live][genkindama]
 
-[genkindama]: http://genkindama.herokuapp.com/
+[genkindama]: http://www.genkindama.us/
 
 Genkin Dama is a full-stack web application inspired by Kickstarter, where users can start campaigns for their projects and let other people fund their projects through rewards and pledges. Genkin Dama is built on Ruby and Rails on the back-end, a PostgreSQL database, and React.js with a Redux architectural framework on the front-end.
 
