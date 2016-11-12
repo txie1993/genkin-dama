@@ -18,7 +18,7 @@ const ProjectIndexItem = ({project, router, displayPercentage}) => (
         </div>
         <div className="item-desc">
             <h2 onClick={projectLink(project.id)}>{project.title}</h2>
-            <p>{project.description}</p>
+            <p className="item-desc-long">{project.description}</p>
 
         </div>
         <div className="item-footer">

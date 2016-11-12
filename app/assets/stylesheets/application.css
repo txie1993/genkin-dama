@@ -81,6 +81,9 @@ body {
 .item-desc h2 {
     cursor: pointer;
 }
+.item-desc p {
+    height: 144px;
+}
 
 .item-footer {
     font-size: 0.8rem;

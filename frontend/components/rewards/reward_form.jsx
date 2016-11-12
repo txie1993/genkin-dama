@@ -62,7 +62,7 @@ class RewardForm extends React.Component {
                         </div>
                         <br/>
                         <div className="grey-box">
-                            <label>Desc
+                            <label>Description
                                 <input type="text" value={this.state.description} onChange={this.update('description')} className="reward-input"/>
 
                             </label>
