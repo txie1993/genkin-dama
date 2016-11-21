@@ -59,7 +59,7 @@ Project.create(creator_id: 29, title: "Write a Book", image_url: "https://images
 Project.create(creator_id: 28, title: "Build Drangleic Castle", image_url: "https://images.unsplash.com/photo-1456389208733-756d6c29e717?dpr=1&auto=format&fit=crop&w=1500&h=998&q=80&cs=tinysrgb&crop=", funding_goal: 1000000000, end_date: "2019-1-25", description: "Drangleic Castle is a Location in Dark Souls 2. Drangleic Castle is where King Vendrick and Nashandra ruled over Drangleic until the Undead Curse outbreak. NPC Chancellor Wallager sells Repair Powder here along with in game apples. ")
 
 
-Project.create(creator_id: 32, title: "Beat Frieza", image_url: "http://vignette1.wikia.nocookie.net/dragonball/images/2/2d/GokuSpiritBombFrieza02.png/revision/latest?cb=20100203100108", funding_goal: 80000, end_date: "2020-02-20", description: "Similarly to his fight with Vegeta, Goku could not defeat Frieza even with his Kaio-ken's power increased 20 times, so he decided to once again use the Spirit Bomb, raising his hands into the air, with Frieza thinking Goku was giving up. ")
+Project.create(creator_id: 32, title: "Beat Frieza", image_url: "http://vignette1.wikia.nocookie.net/dragonball/images/2/2d/GokuSpiritBombFrieza02.png/revision/latest?cb=20100203100108", funding_goal: 80000, end_date: "2020-02-20", description: "Similarly to his fight with Vegeta, Goku could not defeat Frieza even with his Kaio-ken's power increased 20 times, so he decided to once again use the Spirit Bomb, raising his hands into the air, with Frieza thinking Goku was giving up.")
 
 
 
