@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
 		self.session_token
 	end
 
+  def is_admin?
+    self.username == "PPMD"
+  end
+
 	private
 
 	def ensure_session_token
