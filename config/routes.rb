@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy, :show]

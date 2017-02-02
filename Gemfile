@@ -30,6 +30,8 @@ gem 'pry-rails'
 gem 'annotate'
 gem "autoprefixer-rails"
 
+gem "rails_admin"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
